@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Developer workshop</title>
+
+<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+<link rel="stylesheet" href="shower/themes/media.css">
+</head>
+
+<body class="shower list">
+<header class="caption">
+<h1>Developer workshop</h1>
+</header>
+
+<section class="slide" id="cover">
+<h2>Developer workshop</h2>
+<p></p>
+<style>
+#cover h2 {
+margin:30px 0 0;
+color:#000;
+text-align:center;
+font-size:70px;
+}
+#cover p {
+margin:10px 0 0;
+text-align:center;
+color:#000;
+font-style:italic;
+font-size:20px;
+}
+#cover p a {
+color:#000;
+}
+</style>
+</section>
+
+<section class="slide">
+<h2>Native semantics</h2>
+<p>HTML elements and attributes have:</p>
+<ul>
+<li>Roles</li>
+<li>States and properties</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Roles</h2>
+<p>An element's role describes its purpose</p>
+</section>
+
+<section class="slide">
+<h2>The <code>header</code> element</h2>
+<pre><code>&lt;header&gt;...&lt;/header&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>banner</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>footer</code> element</h2>
+<pre><code>&lt;footer&gt;...&lt;/footer&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>contentinfo</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>main</code> element</h2>
+<pre><code>&lt;main&gt;...&lt;/main&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>main</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>nav</code> element</h2>
+<pre><code>&lt;nav&gt;...&lt;/nav&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>navigation</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>ul</code> element</h2>
+<pre><code>&lt;ul&gt;
+&lt;li&gt;...&lt;/li&gt;
+&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>list</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>li</code> element</h2>
+<pre><code>&lt;ul&gt;
+&lt;li&gt;...&lt;/li&gt;
+&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>listitem</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>h1</code> element</h2>
+<pre><code>&lt;h1&gt;...&lt;/h1&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>heading</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>input</code> element (checkbox)</h2>
+<pre><code>&lt;input type="checkbox"&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>checkbox</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>input</code> element (text"</h2>
+<pre><code>&lt;input type="text"&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>textbox</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>select</code> element</h2>
+<pre><code>&lt;select&gt;...&lt;/select&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>combobox</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>States and properties</h2>
+<p>An element may be in a different state, or have different properties</p>
+</section>
+
+<section class="slide">
+<h2>The <code>checked</code> attribute</h2>
+<pre><code>&lt;input type="checkbox" <mark>checked</mark>&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>checkbox</dd>
+<dt>State:</dt>
+<dd>checked</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>disabled</code> attribute</h2>
+<pre><code>&lt;button <mark>disabled</mark>&gt;...&lt;/button&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>button</dd>
+<dt>State:</dt>
+<dd>disabled</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>hidden</code> attribute</h2>
+<pre><code>&lt;nav <mark>hidden</mark>&gt;...&lt;/nav&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>navigation</dd>
+<dt>State:</dt>
+<dd>hidden</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Native keyboard support</h2>
+<ul>
+<li>Keyboard focus</li>
+<li>Keyboard interaction</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Interactive elements</h2>
+<p>HTML interactive elements are keyboard supported by default
+<br>
+<a href="https://www.w3.org/TR/html52/interactive-elements.html#interactive-elements">https://www.w3.org/TR/html52/interactive-elements.html#interactive-elements</a></p>
+</section>
+
+<section class="slide">
+<h2>The <code>a</code> element</h2>
+<pre><code>&lt;a <mark>href="..."</mark>&gt;...&lt;/a&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>link</dd>
+<dt>State:</dt>
+<dd>focusable</dd>
+<dt>Interaction:</dt>
+<dd>Enter</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>button</code> element</h2>
+<pre><code>&lt;button&gt;...&lt;/button&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>button</dd>
+<dt>State:</dt>
+<dd>focusable</dd>
+<dt>Interaction:</dt>
+<dd>Enter, Space</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>select</code> element</h2>
+<pre><code>&lt;select&gt;...&lt;/select&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>combobox</dd>
+<dt>State:</dt>
+<dd>focusable</dd>
+<dt>Interaction:</dt>
+<dd>Enter, up/down</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Tab order</h2>
+<p>The tab order follows the DOM order of interactive elements</p>
+</section>
+
+<section class="slide">
+<h2>DOM order</h2>
+<pre><code>&lt;div&gt;
+    &lt;button&gt;1&lt;/button&gt;
+    &lt;button&gt;2&lt;/button&gt;
+    &lt;button&gt;3&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="slide">
+<h2>DOM order demo</h2>
+<video src="media/dom-order.mp4">
+</section>
+
+<section class="slide">
+<h2>Flexbox order</h2>
+<pre><code>&lt;div <mark>style="display: flex;"</mark>&gt;
+    &lt;button <mark>style="order: 3;"</mark>&gt;1&lt;/button&gt;
+    &lt;button <mark>style="order: 2;"</mark>&gt;2&lt;/button&gt;
+    &lt;button <mark>style="order: 1;"</mark>&gt;3&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="slide">
+<h2>Flexbox order demo</h2>
+<video src="media/flexbox-order.mp4">
+</section>
+
+<!--<div class="progress"></div> -->
+	<script src="shower/shower.min.js"></script>
+	</body>
+	</html>

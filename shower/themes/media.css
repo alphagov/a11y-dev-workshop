@@ -1,0 +1,29 @@
+section>video {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'brightness\'><feColorMatrix type=\'matrix\' values=\'1.2 0 0 0 0 0 1.2 0 0 0 0 0 1.2 0 0 0 0 0 1.2 0\'/></filter></svg>#brightness"); /* Firefox 3.5+ */
+    -webkit-filter:brightness(108.5%); /* Chrome 19+ & Safari 6+ */
+    max-height: 80%;
+}
+
+section>img {
+    max-height: 80%;
+}
+
+dt {
+    float: left;
+    clear: left;
+    width: 120px;
+    font-weight: bold
+}
+
+dt::after {
+    content: ":";
+}
+
+dd {
+    margin: 0 0 0 130px;
+    padding: 0 0 0.5em 0;
+}
+
+code {
+    font-size: 70%; 
+}
