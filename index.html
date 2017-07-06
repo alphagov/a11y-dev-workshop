@@ -91,6 +91,13 @@ color:#000;
 </section>
 
 <section class="slide">
+<h2>Landmark elements demo</h2>
+***
+</section>
+
+
+
+<section class="slide">
 <h2>The <code>ul</code> element</h2>
 <pre><code>&lt;ul&gt;
 &lt;li&gt;...&lt;/li&gt;
@@ -114,6 +121,12 @@ color:#000;
 </dl>
 </section>
 
+
+<section class="slide">
+<h2>Lists demo</h2>
+***
+</section>
+
 <section class="slide">
 <h2>The <code>h1</code> element</h2>
 <pre><code>&lt;h1&gt;...&lt;/h1&gt;</code></pre>
@@ -122,6 +135,12 @@ color:#000;
 <dd>heading</dd>
 </dl>
 </section>
+
+<section class="slide">
+<h2>Headings demo</h2>
+***
+</section>
+
 
 <section class="slide">
 <h2>The <code>input</code> element (checkbox)</h2>
@@ -151,6 +170,11 @@ color:#000;
 </section>
 
 <section class="slide">
+<h2>Forms demo</h2>
+***
+</section>
+
+<section class="slide">
 <h2>States and properties</h2>
 <p>An element may be in a different state, or have different properties</p>
 </section>
@@ -167,6 +191,11 @@ color:#000;
 </section>
 
 <section class="slide">
+<h2>Checked state demo</h2>
+***
+</section>
+
+<section class="slide">
 <h2>The <code>disabled</code> attribute</h2>
 <pre><code>&lt;button <mark>disabled</mark>&gt;...&lt;/button&gt;</code></pre>
 <dl>
@@ -178,6 +207,11 @@ color:#000;
 </section>
 
 <section class="slide">
+<h2>Disabled state demo</h2>
+***
+</section>
+
+<section class="slide">
 <h2>The <code>hidden</code> attribute</h2>
 <pre><code>&lt;nav <mark>hidden</mark>&gt;...&lt;/nav&gt;</code></pre>
 <dl>
@@ -186,6 +220,14 @@ color:#000;
 <dt>State:</dt>
 <dd>hidden</dd>
 </dl>
+</section>
+
+<section class="slide">
+<h2>Exercise: use a screen reader</h2>
+<img style="max-width: 22%; padding-right: 1em;" src="pictures/jaws.png" alt="Jaws">
+<img style="max-width: 22%; padding-right: 1em;" src="pictures/nvda.jpg" alt="NVDA">
+<img style="max-width: 22%; padding-right: 1em;" src="pictures/voiceover.png" alt="Voiceover">
+<img style="max-width: 22%; padding-right: 1em;" src="pictures/narrator.png" alt="Narrator">
 </section>
 
 <section class="slide">
@@ -258,7 +300,7 @@ color:#000;
 
 <section class="slide">
 <h2>DOM order demo</h2>
-<video src="media/dom-order.mp4">
+***
 </section>
 
 <section class="slide">
@@ -272,7 +314,235 @@ color:#000;
 
 <section class="slide">
 <h2>Flexbox order demo</h2>
-<video src="media/flexbox-order.mp4">
+***
+</section>
+
+<section class="slide">
+<h2>The <code>tabindex</code> attribute</h2>
+<ul>
+<li>Elements with tabindex="0" are part of the natural tab sequence</li>
+<li>Elements with tabindex="-1" are not, but are focusable with scripting</li>
+<li>Elements with tabindex=">0" are never a good idea</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>The <code>tabindex</code> attribute (0)</h2>
+<pre><code>&lt;div&gt;
+    <mark>&lt;button&gt;1&lt;/button&gt;</mark>
+    &lt;span tabindex="0" class="button"&gt;2&lt;/span&gt;
+    &lt;button&gt;3&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="slide">
+<h2>The <code>tabindex</code> attribute (0) demo</h2>
+***
+</section>
+
+<section class="slide">
+<h2>The <code>tabindex</code> attribute (-1)</h2>
+<pre><code>&lt;div&gt;
+    &lt;button&gt;1&lt;/button&gt;
+    &lt;button <mark>tabindex="-1"</mark>&gt;2&lt;/button&gt;
+    &lt;button&gt;3&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="slide">
+<h2>The <code>tabindex</code> attribute (-1) demo</h2>
+***
+</section>
+
+<section class="slide">
+<h2>The <code>tabindex</code> attribute (n)</h2>
+<pre><code>&lt;div&gt;
+    &lt;button <mark>tabindex="3"</mark>&gt;1&lt;/button&gt;
+    &lt;button&gt;2&lt;/button <mark>tabindex="2"</mark>&gt;
+    &lt;button <mark>tabindex="1"</mark>&gt;3&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="slide">
+<h2>The <code>tabindex</code> attribute (n) demo</h2>
+***
+</section>
+
+<section class="slide">
+<h2>Exercise: use a keyboard</h2>
+***
+</section>
+
+<section class="slide">
+<h2>Accessibility mechanics</h2>
+<ul>
+<li>DOM tree</li>
+<li>Accessibility tree</li>
+<li>Accessibility APIs</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>DOM tree</h2>
+**
+</section>
+
+<section class="slide">
+<h2>Accessibility tree</h2>
+***
+</section>
+
+
+<section class="slide">
+<h2>The <code>input</code> element (checkbox)</h2>
+<pre><code>&lt;input type="checkbox" id="uk"&gt;
+&lt;label for="uk"&gt;I live in the UK&lt;/label&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dl>checkbox</dd>
+<dt>State:</dt>
+<dd>focusable unchecked</dd>
+<dt>Name:</dt>
+<dd>I live in the UK</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Accessibility APIs</h2>
+<p>Used by ATs to query accessibility information</p>
+</section>
+
+<section class="slide">
+<h2>Platform accessibility APIs</h2>
+<ul>
+<li>Windows: MSAA   UIAutomation   IAccessible2</li>
+<li>Mac OS: NSAccessibility   Protocol</li>
+<li>Linux: IAccessible2   ATK/AT-ASPI</li>
+<li>iOS: UIAccessibility</li>
+<li>Android: Accessibility Framework</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Accessibility Object Model (AOM)</h2>
+<p>JavaScript accessibility API for the future</p>
+<img src="pictures/chrome.png" alt="Chrome"><img src="pictures/firefox.png" alt="Firefox"><img
+src="pictures/safari.png" alt="Safari">
+</section>
+
+<section class="slide">
+<h2>Accessibility API mappings (AAM)</h2>
+<p>Define how role, state, properties, and keyboard focus are handled in the browser</p>
+<ul>
+<li><a href="https://www.w3.org/TR/core-aam-1.1/">Core Accessibility API Mappings (AAM) 1.1</a></li>
+<li><a href="https://www.w3.org/TR/html-aam-1.0/">HTML AMM 1.0</a></li>
+<li><a href="https://www.w3.org/TR/svg-aam-1.0/">SVG AAM 1.0</a></li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Exercise: ???</h2>
+***
+</section>
+
+<section class="slide">
+<h2>Accessible names and descriptions</h2>
+<ul>
+<li>From element content</li>
+<li>From element attribute</li>
+<li>From associated element</li>
+<li>With ARIA</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Accessible names</h2>
+<p>Identifies an instance of an element within an interface</p>
+</section>
+
+<section class="slide">
+<h2>The <code>a</code> element</h2>
+<pre><code>&lt;a href="https://gov.uk"&gt;Gov.UK&lt;/a&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>link</dd>
+<dt>Name:</dt>
+<dd>Gov.UK</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>alt</code> attribute</h2>
+<pre><code>&lt;img src="logo.svg" alt="Gov.UK"&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>image</dd>
+<dt>Name:</dt>
+<dd>Gov.UK</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>label</code> element</h2>
+<pre><code>&lt;input type="checkbox" id="uk"&gt;
+&lt;label for="uk"&gt;I live in the UK&lt;/label&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dl>checkbox</dd>
+<dt>State:</dt>
+<dd>focusable unchecked</dd>
+<dt>Name:</dt>
+<dd>I live in the UK</dd>
+</dl>
+</section>
+
+
+
+<section class="slide">
+<h2>The <code>aria-label</code> attribute</h2>
+<pre><code>&lt;button aria-label="Search"&gt;&lt;span class="icon"&gt;&lt;/span&gt;&lt;/button&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>button</dd>
+<dt>Name:</dt>
+<dd>Search</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>aria-labelledby</code> attribute</h2>
+<pre><code>&lt;section aria-labelledby="services"&gt;
+&lt;h2 id="services"&gt;Services and information&lt;/h2&gt;
+...
+&lt;/section&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>region</dd>
+<dt>Name:</dt>
+<dd>Services and information</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Accessible name computation</h2>
+<p>Browser algorithm for calculating accessible names and descriptions
+<br>
+<a href="https://www.w3.org/TR/accname-aam-1.1/">https://www.w3.org/TR/accname-aam-1.1/</a></p>
+</section>
+
+<section class="slide">
+<h2>The <code>aria-describedby</code> attribute</h2>
+<pre><code>&lt;label for="tel"&gt;Your phone number&lt;/label&gt;
+&lt;input type="text id="tel" aria-describedby="desc"&gt;
+&lt;p id="desc"&gt;Enter your phone number with no spaces&lt;/p&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>textbox</dd>
+<dt>Name:</dt>
+<dd>Your phone number</dd>
+<dt>Description:</dt>
+<dd>Enter your phone number with no spaces</dd>
+</dl>
 </section>
 
 <!--<div class="progress"></div> -->
