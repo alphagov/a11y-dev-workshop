@@ -41,16 +41,27 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>Native semantics</h2>
-<p>HTML elements and attributes have:</p>
+<h2>Overview</h2>
 <ul>
-<li>Roles</li>
-<li>States and properties</li>
+<li>Native semantics</li>
+<li>Native keyboard interaction</li>
+<li>Accessibility mechanics</li>
+<li>Break</li>
+<li>Accessible names and descriptions</li>
+<li>Polyfilling accessibility</li>
+<li>Design patterns</li>
 </ul>
 </section>
 
 <section class="slide">
-<h2>Roles</h2>
+<ul>
+<li>Element roles</li>
+<li>Element states and properties</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Element roles</h2>
 <p>An element's role describes its purpose</p>
 </section>
 
@@ -91,11 +102,9 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>Landmark elements demo</h2>
+<h2>Screen reader demo</h2>
 ***
 </section>
-
-
 
 <section class="slide">
 <h2>The <code>ul</code> element</h2>
@@ -121,9 +130,8 @@ color:#000;
 </dl>
 </section>
 
-
 <section class="slide">
-<h2>Lists demo</h2>
+<h2>Screen reader demo</h2>
 ***
 </section>
 
@@ -137,13 +145,12 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>Headings demo</h2>
+<h2>Screen reader demo</h2>
 ***
 </section>
 
-
 <section class="slide">
-<h2>The <code>input</code> element (checkbox)</h2>
+<h2>The <code>input type="checkbox"</code> element</h2>
 <pre><code>&lt;input type="checkbox"&gt;</code></pre>
 <dl>
 <dt>Role:</dt>
@@ -152,7 +159,7 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>The <code>input</code> element (text"</h2>
+<h2>The <code>input type="text"</code> element</h2>
 <pre><code>&lt;input type="text"&gt;</code></pre>
 <dl>
 <dt>Role:</dt>
@@ -170,7 +177,7 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>Forms demo</h2>
+<h2>Screen reader demo</h2>
 ***
 </section>
 
@@ -191,7 +198,7 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>Checked state demo</h2>
+<h2>Screen reader demo</h2>
 ***
 </section>
 
@@ -207,7 +214,7 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>Disabled state demo</h2>
+<h2>Screen reader demo</h2>
 ***
 </section>
 
@@ -242,7 +249,7 @@ color:#000;
 <h2>Interactive elements</h2>
 <p>HTML interactive elements are keyboard supported by default
 <br>
-<a href="https://www.w3.org/TR/html52/interactive-elements.html#interactive-elements">https://www.w3.org/TR/html52/interactive-elements.html#interactive-elements</a></p>
+<a href="https://w3.org/tr/html52/interactive-elements.html#interactive-elements">w3.org/tr/html52/interactive-elements.html#interactive-elements</a></p>
 </section>
 
 <section class="slide">
@@ -299,7 +306,7 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>DOM order demo</h2>
+<h2>Keyboard demo</h2>
 ***
 </section>
 
@@ -313,21 +320,21 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>Flexbox order demo</h2>
+<h2>Keyboard demo</h2>
 ***
 </section>
 
 <section class="slide">
 <h2>The <code>tabindex</code> attribute</h2>
 <ul>
-<li>Elements with tabindex="0" are part of the natural tab sequence</li>
+<li>Elements with tabindex="0" are added to the natural tab sequence</li>
 <li>Elements with tabindex="-1" are not, but are focusable with scripting</li>
-<li>Elements with tabindex=">0" are never a good idea</li>
+<li>Elements with tabindex="n" are never a good idea</li>
 </ul>
 </section>
 
 <section class="slide">
-<h2>The <code>tabindex</code> attribute (0)</h2>
+<h2>The <code>tabindex="0"</code> attribute</h2>
 <pre><code>&lt;div&gt;
     <mark>&lt;button&gt;1&lt;/button&gt;</mark>
     &lt;span tabindex="0" class="button"&gt;2&lt;/span&gt;
@@ -336,12 +343,12 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>The <code>tabindex</code> attribute (0) demo</h2>
+<h2>Keyboard demo</h2>
 ***
 </section>
 
 <section class="slide">
-<h2>The <code>tabindex</code> attribute (-1)</h2>
+<h2>The <code>tabindex="-1"</code> attribute</h2>
 <pre><code>&lt;div&gt;
     &lt;button&gt;1&lt;/button&gt;
     &lt;button <mark>tabindex="-1"</mark>&gt;2&lt;/button&gt;
@@ -350,12 +357,12 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>The <code>tabindex</code> attribute (-1) demo</h2>
+<h2>Keyboard demo</h2>
 ***
 </section>
 
 <section class="slide">
-<h2>The <code>tabindex</code> attribute (n)</h2>
+<h2>The <code>tabindex="n"</code> attribute</h2>
 <pre><code>&lt;div&gt;
     &lt;button <mark>tabindex="3"</mark>&gt;1&lt;/button&gt;
     &lt;button&gt;2&lt;/button <mark>tabindex="2"</mark>&gt;
@@ -364,7 +371,7 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>The <code>tabindex</code> attribute (n) demo</h2>
+<h2>Keyboard demo</h2>
 ***
 </section>
 
@@ -384,7 +391,7 @@ color:#000;
 
 <section class="slide">
 <h2>DOM tree</h2>
-**
+***
 </section>
 
 <section class="slide">
@@ -392,9 +399,8 @@ color:#000;
 ***
 </section>
 
-
 <section class="slide">
-<h2>The <code>input</code> element (checkbox)</h2>
+<h2>The <code>input type="checkbox"</code> element</h2>
 <pre><code>&lt;input type="checkbox" id="uk"&gt;
 &lt;label for="uk"&gt;I live in the UK&lt;/label&gt;</code></pre>
 <dl>
@@ -409,7 +415,9 @@ color:#000;
 
 <section class="slide">
 <h2>Accessibility APIs</h2>
-<p>Used by ATs to query accessibility information</p>
+<p>Used by ATs to query accessibility information
+<br>
+<a href="https://www.smashingmagazine.com/2015/03/web-accessibility-with-accessibility-api/">smashingmagazine.com/2015/03/web-accessibility-with-accessibility-api/</a></p>
 </section>
 
 <section class="slide">
@@ -424,6 +432,23 @@ color:#000;
 </section>
 
 <section class="slide">
+<h2>Accessibility API mappings (AAM)</h2>
+<p>Define how role, state, properties, and keyboard focus are handled in the browser</p>
+<ul>
+<li>Core AAM:<br>
+<a href="https://w3.org/tr/core-aam-1.1/">w3.org/tr/core-aam-1.1/</a></li>
+<li>HTML AAM:<br>
+<a href="https://w3.org/tr/html-aam-1.0/">w3.org/tr/html-aam-1.0/</a></li></ul>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Browser accessibility support</h2>
+<p>An element may be supported in a browser, but not accessibility supported<br>
+<a href="https://html5accessibility.com/">html5accessibility.com</a></p>
+</section>
+
+<section class="slide">
 <h2>Accessibility Object Model (AOM)</h2>
 <p>JavaScript accessibility API for the future</p>
 <img src="pictures/chrome.png" alt="Chrome"><img src="pictures/firefox.png" alt="Firefox"><img
@@ -431,13 +456,13 @@ src="pictures/safari.png" alt="Safari">
 </section>
 
 <section class="slide">
-<h2>Accessibility API mappings (AAM)</h2>
-<p>Define how role, state, properties, and keyboard focus are handled in the browser</p>
-<ul>
-<li><a href="https://www.w3.org/TR/core-aam-1.1/">Core Accessibility API Mappings (AAM) 1.1</a></li>
-<li><a href="https://www.w3.org/TR/html-aam-1.0/">HTML AMM 1.0</a></li>
-<li><a href="https://www.w3.org/TR/svg-aam-1.0/">SVG AAM 1.0</a></li>
-</ul>
+<h2>AOM: phases</h2>
+<ol>
+<li>Modify accessibility node semantics</li>
+<li>Respond to events from screen readers (and other ATs)</li>
+<li>Create virtual accessibility nodes</li>
+<li>Query the accessibility tree</li>
+</ol>
 </section>
 
 <section class="slide">
@@ -497,7 +522,6 @@ src="pictures/safari.png" alt="Safari">
 </section>
 
 
-
 <section class="slide">
 <h2>The <code>aria-label</code> attribute</h2>
 <pre><code>&lt;button aria-label="Search"&gt;&lt;span class="icon"&gt;&lt;/span&gt;&lt;/button&gt;</code></pre>
@@ -524,10 +548,8 @@ src="pictures/safari.png" alt="Safari">
 </section>
 
 <section class="slide">
-<h2>Accessible name computation</h2>
-<p>Browser algorithm for calculating accessible names and descriptions
-<br>
-<a href="https://www.w3.org/TR/accname-aam-1.1/">https://www.w3.org/TR/accname-aam-1.1/</a></p>
+<h2>Accessible descriptions</h2>
+<p>Provides additional descriptive information about an element</p>
 </section>
 
 <section class="slide">
@@ -543,6 +565,251 @@ src="pictures/safari.png" alt="Safari">
 <dt>Description:</dt>
 <dd>Enter your phone number with no spaces</dd>
 </dl>
+</section>
+
+<section class="slide">
+<h2>Accessible name computation</h2>
+<p>Browser algorithm for calculating accessible names and descriptions<br>
+<a href="https://w3.org/tr/accname-aam-1.1/">w3.org/tr/accname-aam-1.1/</a></p>
+</section>
+
+<section class="slide">
+<h2>Exercise: accessible names</h2>
+<p>For each example, identify the element's accessible name and/or description</p>
+</section>
+
+<section class="slide">
+<h2>Example 1</h2>
+<pre><code>&lt;button&gt;Edit your answer&lt;/button&gt;</code></pre>
+</section>
+
+<section class="slide">
+<h2>Example 1: answer</h2>
+<pre><code>&lt;button&gt;<mark>Edit your answer</mark>&lt;/button&gt;</code></pre>
+<dl>
+<dt>Name:</dt>
+<dd>Edit your answer</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Example 2</h2>
+<pre><code>&lt;button aria-label="Edit your address"&gt;Edit your answer&lt;/button&gt;</code></pre>
+</section>
+
+<section class="slide">
+<h2>Example 2: answer</h2>
+<pre><code>&lt;button aria-label="<mark>Edit your address</mark>"&gt;Edit your answer&lt;/button&gt;</code></pre>
+<dl>
+<dt>Name:</dt>
+<dd>Edit your address</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Example 3</h2>
+<pre><code>&lt;label&gt;Email address&lt;/label&gt;
+&lt;input type="email" aria-describedby="desc"&gt;
+&lt;p id="desc"&gt;We will send confirmation to this email address&lt;/p&gt;</code></pre>
+</section>
+
+<section class="slide">
+<h2>Example 3: answer</h2>
+<pre><code>&lt;label&gt;Email address&lt;/label&gt;
+&lt;input type="email" aria-describedby="desc"&gt;
+&lt;p id="desc"&gt;<mark>We will send confirmation to this email address</mark>&lt;/p&gt;</code></pre>
+<dl>
+<dt>Name:</dt>
+<dd> -</dd>
+<dt>Description:</dt>
+<dd>We will send confirmation to this email address</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Example 4</h2>
+<pre><code>&lt;img src="stock.jpg" alt=""&gt;</code></pre>
+</section>
+
+<section class="slide">
+<h2>Example 4: answer</h2>
+<pre><code>&lt;img src="stock.jpg" alt=""&gt;</code></pre>
+<dl>
+<dt>Name:</dt>
+<dd> -</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Example 5</h2>
+<pre><code>&lt;img src="browser-stats.svg" alt="<mark>Browser statistics chart</mark>" aria-describedby="browser-stats-desc"&gt;
+&lt;div id="browser-stats-desc"&gt;
+&lt;p&gt;<mark>A pie chart showing the percentage of visitors to Gov.UK using different browsers...</mark>&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+<dl>
+<dt>Name:</dt>
+<dd>Browser statistics chart</dd>
+<dt>Description:</dt>
+<dd>A pie chart showing the percentage of visitors to Gov.UK using different browsers...</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Polyfilling accessibility</h2>
+<ul>
+<li>With ARIA</li>
+<li>With JavaScript</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Neutral elements</h2>
+<pre><code>&lt;div class="toolbar"&gt;
+&lt;span class="button"&gt;Bold&lt;/span&gt;&lt;span class="button"&gt;Italic&lt;/span&gt;...
+&lt;/div&gt;</code></pre>
+</section>
+<dl>
+<dt>Role:</dt>
+<dd> -</dd>
+<dt>Name:</dt>
+<dd> -</dd>
+<dt>State:</dt>
+<dd> -</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Using ARIA</h2>
+<p>Attributes that polyfill missing role, name, and state information</p>
+<ul>
+<li>ARIA 1.0:<br>
+<a href="https://w3.org/tr/wai-aria/">w3.org/tr/wai-aria/</a></li>
+<li>ARIA 1.1 (Candidate Recommendation):<br>
+<a href="https://w3.org/tr/wai-aria-1.1/">w3.org/tr/wai-aria-1.1/</a></li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>1st rule of ARIA</h2>
+<p>If you can use a native HTML element or attribute with the semantics and behaviour you require... then do so</p>
+</section>
+
+<section class="slide">
+<h2>2nd rule of ARIA</h2>
+<p>Do not change native semantics, unless you really have to</p>
+</section>
+
+<section class="slide">
+<h2>The <code>role</code> attribute</h2>
+<pre><code>&lt;button role="heading" aria-level="1"&gt;Foo&lt;/button&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>heading</dd>
+<dt>Name:</dt>
+<dd>Foo</dd>
+<dt>State:</dt>
+<dd>level 1</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Screen reader demo</h2>
+***
+</section>
+
+
+<section class="slide">
+<h2>3rd rule of ARIA</h2>
+<p>All interactive controls must be usable with a keyboard</p>
+</section>
+
+<section class="slide">
+<h2>The <code>span</code> element</h2>
+<pre><code>&lt;span id="button"&gt;Foo&lt;/span&gt;</code></pre>
+</section>
+
+<section class="slide">
+<h2>The <code>role</code> attribute</h2>
+<pre><code>&lt;span <mark>role="button"</mark> id="button"&gt;Foo&lt;/span&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>button</dd>
+<dt>Name:</dt>
+<dd>Foo</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>tabindex</code> attribute</h2>
+<pre><code>&lt;span <mark>tabindex="0"</mark> role="button" id="button"&gt;Foo&lt;/span&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>button</dd>
+<dt>Name:</dt>
+<dd>Foo</dd>
+<dt>State:</dt>
+<dd>focusable</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>click</code> event listener</h2>
+<pre><code>var button = document.getElementById('button');
+button.addEventListener('click', doSomething, false);</code></pre>
+</section>
+
+<section class="slide">
+<h2>The <code>keydown</code> event listener</h2>
+<pre><code>var button = document.getElementById('button');
+button.addEventListener('keydown', function(event) {
+    if (event.keyCode == 13 || event.keyCode == 32) {
+        doSomething();
+    }
+});</code></pre>
+</section>
+
+<section class="slide">
+<h2>4th rule of ARIA</h4>
+<p>Do not use <code>role="presentation"</code> or <code>aria-hidden="true"</code> on visible and focusable elements</p>
+</section>
+
+
+<section class="slide">
+<h2>The <code>role="presentation"</code> attribute</h2>
+<pre><code>&lt;button role="presentation"&gt;Foo&lt;/button&gt;</code></pre>
+<p>Removes the element's semantics (but not its content</p>
+</section>
+
+<section class="slide">
+<h2>Screen reader demo</h2>
+***
+</section>
+
+<section class="slide">
+<h2>The <code>role="none"</code> attribute</h2>
+<pre><code>&lt;button role="none"&gt;Foo&lt;/button&gt;</code></pre>
+<p>Introduced in ARIA 1.1 as a synonym for <code>role="presentation"</code></p>
+</section>
+
+<section class="slide">
+<h2>The <code>aria-hidden</code> attribute</h2>
+<pre><code>&lt;button aria-hidden="true"&gt;Foo&lt;/button&gt;</code></pre>
+<p>Removes the element from the accessibility tree</p>
+</section>
+
+<section class="slide">
+<h2>The 5th rule of ARIA</h2>
+<p>All interactive elements must have an accessible name</p>
+</section>
+
+<section class="slide">
+<h2>Exercise:</h2>
+***
+</section>
+
+<section class="slide">
+<h2>Design patterns</h2>
+***
 </section>
 
 <!--<div class="progress"></div> -->
