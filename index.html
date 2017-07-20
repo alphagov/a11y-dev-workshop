@@ -44,7 +44,7 @@ color:#000;
 <h2>Overview</h2>
 <ul>
 <li>Native semantics</li>
-<li>Native keyboard interaction</li>
+<li>Native keyboard behaviour</li>
 <li>Accessibility mechanics</li>
 <li>Break</li>
 <li>Accessible names and descriptions</li>
@@ -54,6 +54,7 @@ color:#000;
 </section>
 
 <section class="slide">
+<h2>Native semantics</h2>
 <ul>
 <li>Element roles</li>
 <li>Element states and properties</li>
@@ -218,16 +219,6 @@ color:#000;
 ***
 </section>
 
-<section class="slide">
-<h2>The <code>hidden</code> attribute</h2>
-<pre><code>&lt;nav <mark>hidden</mark>&gt;...&lt;/nav&gt;</code></pre>
-<dl>
-<dt>Role:</dt>
-<dd>navigation</dd>
-<dt>State:</dt>
-<dd>hidden</dd>
-</dl>
-</section>
 
 <section class="slide">
 <h2>Exercise: use a screen reader</h2>
@@ -238,7 +229,7 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>Native keyboard support</h2>
+<h2>Native keyboard behaviour</h2>
 <ul>
 <li>Keyboard focus</li>
 <li>Keyboard interaction</li>
@@ -773,7 +764,6 @@ button.addEventListener('keydown', function(event) {
 <p>Do not use <code>role="presentation"</code> or <code>aria-hidden="true"</code> on visible and focusable elements</p>
 </section>
 
-
 <section class="slide">
 <h2>The <code>role="presentation"</code> attribute</h2>
 <pre><code>&lt;button role="presentation"&gt;Foo&lt;/button&gt;</code></pre>
@@ -789,6 +779,27 @@ button.addEventListener('keydown', function(event) {
 <h2>The <code>role="none"</code> attribute</h2>
 <pre><code>&lt;button role="none"&gt;Foo&lt;/button&gt;</code></pre>
 <p>Introduced in ARIA 1.1 as a synonym for <code>role="presentation"</code></p>
+</section>
+
+<section class="slide">
+<h2>Hiding content</h2>
+<ul>
+<li>The <code>hidden</code> attribute</li>
+<li>The <code>display:none;</code> property</li>
+<li>The <code>aria-hidden</code> attribute</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>The <code>hidden</code> attribute</h2>
+<pre><code>&lt;nav <mark>hidden</mark>&gt;...&lt;/nav&gt;</code></pre>
+<p>Hides content from everyone</p>
+</section>
+
+<section class="slide">
+<h2>The <code>display:none;</code> property</h2>
+<pre><code>&lt;div id="reveal" <mark>style="display:none;"</mark>&gt;...&lt;/div&gt;</code></pre>
+<p>Hides content from everyone, unless CSS is disabled</p>
 </section>
 
 <section class="slide">
