@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Developer workshop</title>
+<title>Developer workshop: Accessibility</title>
 
 <link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
 <link rel="stylesheet" href="shower/themes/media.css">
@@ -14,12 +14,12 @@
 
 <body class="shower list">
 <header class="caption">
-<h1>Developer workshop</h1>
+<h1>Developer workshop: Accessibility</h1>
 </header>
 
 <section class="slide" id="cover">
-<h2>Developer workshop</h2>
-<p></p>
+<h2>Developer workshop: Accessibility</h2>
+<p>Government Digital Service (GDS)</p>
 <style>
 #cover h2 {
 margin:30px 0 0;
@@ -43,14 +43,180 @@ color:#000;
 <section class="slide">
 <h2>Overview</h2>
 <ul>
-<li>Native semantics</li>
 <li>Native keyboard behaviour</li>
+<li>Native semantics</li>
 <li>Accessibility mechanics</li>
 <li>Break</li>
 <li>Accessible names and descriptions</li>
 <li>Polyfilling accessibility</li>
-<li>Design patterns</li>
+<li>Acceptance criteria</li>
 </ul>
+</section>
+
+<section class="slide">
+<h2>Native keyboard behaviour</h2>
+<ul>
+<li>Keyboard focus</li>
+<li>Keyboard interaction</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Interactive elements</h2>
+<p>HTML interactive elements are keyboard supported by default
+<br>
+<a href="https://w3.org/tr/html52/interactive-elements.html#interactive-elements">w3.org/tr/html52/interactive-elements.html#interactive-elements</a></p>
+</section>
+
+<section class="slide">
+<h2>The <code>a</code> element</h2>
+<pre><code>&lt;a <mark>href="..."</mark>&gt;...&lt;/a&gt;</code></pre>
+<dl>
+<dt>State:</dt>
+<dd>focusable</dd>
+<dt>Interaction:</dt>
+<dd>Enter</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>button</code> element</h2>
+<pre><code>&lt;button&gt;...&lt;/button&gt;</code></pre>
+<dl>
+<dt>State:</dt>
+<dd>focusable</dd>
+<dt>Interaction:</dt>
+<dd>Enter, Space</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>select</code> element</h2>
+<pre><code>&lt;select&gt;...&lt;/select&gt;</code></pre>
+<dl>
+<dt>State:</dt>
+<dd>focusable</dd>
+<dt>Interaction:</dt>
+<dd>Enter, up/down</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Tab order</h2>
+<p>The tab order follows the DOM order of interactive elements</p>
+</section>
+
+<section class="slide">
+<h2>DOM order</h2>
+<pre><code>&lt;div&gt;
+    &lt;button&gt;1&lt;/button&gt;
+    &lt;button&gt;2&lt;/button&gt;
+    &lt;button&gt;3&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="slide">
+<h2>Keyboard demo</h2>
+***
+</section>
+
+<section class="slide">
+<h2>Flexbox order</h2>
+<pre><code>&lt;div <mark>style="display: flex;"</mark>&gt;
+    &lt;button <mark>style="order: 3;"</mark>&gt;1&lt;/button&gt;
+    &lt;button <mark>style="order: 2;"</mark>&gt;2&lt;/button&gt;
+    &lt;button <mark>style="order: 1;"</mark>&gt;3&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="slide">
+<h2>Keyboard demo</h2>
+***
+</section>
+
+<section class="slide">
+<h2>The <code>tabindex</code> attribute</h2>
+<ul>
+<li>Elements with tabindex="0" are added to the natural tab sequence</li>
+<li>Elements with tabindex="-1" are not, but are focusable with scripting</li>
+<li>Elements with tabindex="n" are never a good idea</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>The <code>tabindex="0"</code> attribute</h2>
+<pre><code>&lt;div&gt;
+    <mark>&lt;button&gt;1&lt;/button&gt;</mark>
+    &lt;span tabindex="0" class="button"&gt;2&lt;/span&gt;
+    &lt;button&gt;3&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="slide">
+<h2>Keyboard demo</h2>
+***
+</section>
+
+<section class="slide">
+<h2>The <code>tabindex="-1"</code> attribute</h2>
+<pre><code>&lt;div&gt;
+    &lt;button&gt;1&lt;/button&gt;
+    &lt;button <mark>tabindex="-1"</mark>&gt;2&lt;/button&gt;
+    &lt;button&gt;3&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="slide">
+<h2>Keyboard demo</h2>
+***
+</section>
+
+<section class="slide">
+<h2>The <code>tabindex="N"</code> attribute</h2>
+<pre><code>&lt;div&gt;
+    &lt;button <mark>tabindex="3"</mark>&gt;1&lt;/button&gt;
+    &lt;button&gt;2&lt;/button <mark>tabindex="2"</mark>&gt;
+    &lt;button <mark>tabindex="1"</mark>&gt;3&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+</section>
+
+<section class="slide">
+<h2>Keyboard demo</h2>
+***
+</section>
+
+<section class="slide">
+<h2>The <code>.focus()</code> method</h2>
+<p>To move focus:</p>
+<ul>
+<li>Set <code>tabindex="-1"</code> on the element to receive focus</li>
+<li>Use the <code>.focus()</code> method to move focus to that element</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Exercise: use a keyboard</h2>
+<dl>
+<dt>Tab</dt>
+<dd>Moves to next focusable element</dd>
+<dt>Shift tab</dt>
+<dd>Moves to previous focusable element</dd>
+<dt>Enter</dt>
+<dd>Activates currently focused element</dd>
+<dt>Space</dt>
+<dd>Activates currently focused element</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Exercise: steps</h2>
+<ol>
+<li>Go to the Gov.UK homepage</li>
+<li>Search for "passport"</li>
+<li>Filter by "HM Passport office"</li>
+<li>Follow the "Apply online for a UK passport"</li>
+<li>Find out which other ways you can apply for a passport</li>
+</ol>
 </section>
 
 <section class="slide">
@@ -109,10 +275,7 @@ color:#000;
 
 <section class="slide">
 <h2>The <code>ul</code> element</h2>
-<pre><code>&lt;ul&gt;
-&lt;li&gt;...&lt;/li&gt;
-&lt;li&gt;...&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+<pre><code>&lt;ul&gt;...&lt;/ul&gt;</code></pre>
 <dl>
 <dt>Role:</dt>
 <dd>list</dd>
@@ -222,7 +385,6 @@ color:#000;
 
 <section class="slide">
 <h2>Exercise: use a screen reader</h2>
-<p>Go to Gov.UK and explore the homepage with a screen reader</p>
 <img style="max-width: 22%; padding-right: 1em;" src="pictures/jaws.png" alt="Jaws">
 <img style="max-width: 22%; padding-right: 1em;" src="pictures/nvda.jpg" alt="NVDA">
 <img style="max-width: 22%; padding-right: 1em;" src="pictures/voiceover.png" alt="Voiceover">
@@ -233,155 +395,14 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>Native keyboard behaviour</h2>
-<ul>
-<li>Keyboard focus</li>
-<li>Keyboard interaction</li>
-</ul>
-</section>
-
-<section class="slide">
-<h2>Interactive elements</h2>
-<p>HTML interactive elements are keyboard supported by default
-<br>
-<a href="https://w3.org/tr/html52/interactive-elements.html#interactive-elements">w3.org/tr/html52/interactive-elements.html#interactive-elements</a></p>
-</section>
-
-<section class="slide">
-<h2>The <code>a</code> element</h2>
-<pre><code>&lt;a <mark>href="..."</mark>&gt;...&lt;/a&gt;</code></pre>
-<dl>
-<dt>Role:</dt>
-<dd>link</dd>
-<dt>State:</dt>
-<dd>focusable</dd>
-<dt>Interaction:</dt>
-<dd>Enter</dd>
-</dl>
-</section>
-
-<section class="slide">
-<h2>The <code>button</code> element</h2>
-<pre><code>&lt;button&gt;...&lt;/button&gt;</code></pre>
-<dl>
-<dt>Role:</dt>
-<dd>button</dd>
-<dt>State:</dt>
-<dd>focusable</dd>
-<dt>Interaction:</dt>
-<dd>Enter, Space</dd>
-</dl>
-</section>
-
-<section class="slide">
-<h2>The <code>select</code> element</h2>
-<pre><code>&lt;select&gt;...&lt;/select&gt;</code></pre>
-<dl>
-<dt>Role:</dt>
-<dd>combobox</dd>
-<dt>State:</dt>
-<dd>focusable</dd>
-<dt>Interaction:</dt>
-<dd>Enter, up/down</dd>
-</dl>
-</section>
-
-<section class="slide">
-<h2>Tab order</h2>
-<p>The tab order follows the DOM order of interactive elements</p>
-</section>
-
-<section class="slide">
-<h2>DOM order</h2>
-<pre><code>&lt;div&gt;
-    &lt;button&gt;1&lt;/button&gt;
-    &lt;button&gt;2&lt;/button&gt;
-    &lt;button&gt;3&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-</section>
-
-<section class="slide">
-<h2>Keyboard demo</h2>
-***
-</section>
-
-<section class="slide">
-<h2>Flexbox order</h2>
-<pre><code>&lt;div <mark>style="display: flex;"</mark>&gt;
-    &lt;button <mark>style="order: 3;"</mark>&gt;1&lt;/button&gt;
-    &lt;button <mark>style="order: 2;"</mark>&gt;2&lt;/button&gt;
-    &lt;button <mark>style="order: 1;"</mark>&gt;3&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-</section>
-
-<section class="slide">
-<h2>Keyboard demo</h2>
-***
-</section>
-
-<section class="slide">
-<h2>The <code>tabindex</code> attribute</h2>
-<ul>
-<li>Elements with tabindex="0" are added to the natural tab sequence</li>
-<li>Elements with tabindex="-1" are not, but are focusable with scripting</li>
-<li>Elements with tabindex="n" are never a good idea</li>
-</ul>
-</section>
-
-<section class="slide">
-<h2>The <code>tabindex="0"</code> attribute</h2>
-<pre><code>&lt;div&gt;
-    <mark>&lt;button&gt;1&lt;/button&gt;</mark>
-    &lt;span tabindex="0" class="button"&gt;2&lt;/span&gt;
-    &lt;button&gt;3&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-</section>
-
-<section class="slide">
-<h2>Keyboard demo</h2>
-***
-</section>
-
-<section class="slide">
-<h2>The <code>tabindex="-1"</code> attribute</h2>
-<pre><code>&lt;div&gt;
-    &lt;button&gt;1&lt;/button&gt;
-    &lt;button <mark>tabindex="-1"</mark>&gt;2&lt;/button&gt;
-    &lt;button&gt;3&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-</section>
-
-<section class="slide">
-<h2>Keyboard demo</h2>
-***
-</section>
-
-<section class="slide">
-<h2>The <code>tabindex="n"</code> attribute</h2>
-<pre><code>&lt;div&gt;
-    &lt;button <mark>tabindex="3"</mark>&gt;1&lt;/button&gt;
-    &lt;button&gt;2&lt;/button <mark>tabindex="2"</mark>&gt;
-    &lt;button <mark>tabindex="1"</mark>&gt;3&lt;/button&gt;
-&lt;/div&gt;</code></pre>
-</section>
-
-<section class="slide">
-<h2>Keyboard demo</h2>
-***
-</section>
-
-<section class="slide">
-<h2>The <code>.focus()</code> method</h2>
-<p>To move focus:</p>
-<ul>
-<li>Set <code>tabindex="-1" on the element to receive focus</li>
-<li>Use the <code>.focus()</code> method to move focus to that element</li>
-</ul>
-</section>
-
-<section class="slide">
-<h2>Exercise: use a keyboard</h2>
-***
+<h2>Exercise: steps</h2>
+<ol>
+<li>Go to the Gov.UK homepage</li>
+<li>Search for "passport"</li>
+<li>Filter by "HM Passport office"</li>
+<li>Follow the "Apply online for a UK passport"</li>
+<li>Find out which other ways you can apply for a passport</li>
+</ol>
 </section>
 
 <section class="slide">
@@ -470,10 +491,22 @@ src="pictures/safari.png" alt="Safari">
 </section>
 
 <section class="slide">
-<h2>Exercise: ???</h2>
-***
+<h2>Exercise: Inspect the accessibility tree</h2>
+<ul>
+<li>Chrome Accessibility Developer Tools</li>
+<li>TPG aViewer</li>
+</ul>
 </section>
 
+<section class="slide">
+<h2>Exercise: steps</h2>
+<ul>
+<li>Go to the Gov.UK homepage</li>
+<li>Use the Elements panel to walk the DOM</li>
+<li>Find information in the Accessibility Properties panel</li>
+<li>Run an audit</li>
+</ul>
+</section>
 <section class="slide">
 <h2>Accessible names and descriptions</h2>
 <ul>
@@ -525,7 +558,6 @@ src="pictures/safari.png" alt="Safari">
 </dl>
 </section>
 
-
 <section class="slide">
 <h2>The <code>aria-label</code> attribute</h2>
 <pre><code>&lt;button aria-label="Search"&gt;&lt;span class="icon"&gt;&lt;/span&gt;&lt;/button&gt;</code></pre>
@@ -535,6 +567,11 @@ src="pictures/safari.png" alt="Safari">
 <dt>Name:</dt>
 <dd>Search</dd>
 </dl>
+</section>
+
+<section class="slide">
+<h2>Screen reader demo</h2>
+***
 </section>
 
 <section class="slide">
@@ -549,6 +586,11 @@ src="pictures/safari.png" alt="Safari">
 <dt>Name:</dt>
 <dd>Services and information</dd>
 </dl>
+</section>
+
+<section class="slide">
+<h2>Screen reader demo</h2>
+***
 </section>
 
 <section class="slide">
@@ -569,6 +611,11 @@ src="pictures/safari.png" alt="Safari">
 <dt>Description:</dt>
 <dd>Enter your phone number with no spaces</dd>
 </dl>
+</section>
+
+<section class="slide">
+<h2>Screen reader demo</h2>
+***
 </section>
 
 <section class="slide">
@@ -683,8 +730,13 @@ src="pictures/safari.png" alt="Safari">
 </section>
 
 <section class="slide">
+<h2>Screen reader demo</h2>
+***
+</section>
+
+<section class="slide">
 <h2>Using ARIA</h2>
-<p>Attributes that polyfill missing role, name, and state information</p>
+<p>Attributes that polyfill missing role, name, and state information for screen readers</p>
 <ul>
 <li>ARIA 1.0:<br>
 <a href="https://w3.org/tr/wai-aria/">w3.org/tr/wai-aria/</a></li>
@@ -721,7 +773,6 @@ src="pictures/safari.png" alt="Safari">
 ***
 </section>
 
-
 <section class="slide">
 <h2>3rd rule of ARIA</h2>
 <p>All interactive controls must be usable with a keyboard</p>
@@ -730,16 +781,15 @@ src="pictures/safari.png" alt="Safari">
 <section class="slide">
 <h2>The <code>span</code> element</h2>
 <pre><code>&lt;span id="button"&gt;Foo&lt;/span&gt;</code></pre>
-</section>
-
-<section class="slide">
-<h2>The <code>role</code> attribute</h2>
-<pre><code>&lt;span <mark>role="button"</mark> id="button"&gt;Foo&lt;/span&gt;</code></pre>
 <dl>
 <dt>Role:</dt>
-<dd>button</dd>
+<dd>-</dd>
 <dt>Name:</dt>
-<dd>Foo</dd>
+<dd>-</dd>
+<dt>State:</dt>
+<dd>-</dd>
+<dt>Interaction:</dt>
+<dd>-</dd>
 </dl>
 </section>
 
@@ -748,11 +798,14 @@ src="pictures/safari.png" alt="Safari">
 <pre><code>&lt;span <mark>tabindex="0"</mark> role="button" id="button"&gt;Foo&lt;/span&gt;</code></pre>
 <dl>
 <dt>Role:</dt>
-<dd>button</dd>
+<dd>-</dd>
 <dt>Name:</dt>
-<dd>Foo</dd>
+<dd>-</dd>
 <dt>State:</dt>
 <dd>focusable</dd>
+
+<dt>Interaction:</dt>
+<dd>-</dd>
 </dl>
 </section>
 
@@ -770,6 +823,21 @@ button.addEventListener('keydown', function(event) {
         doSomething();
     }
 });</code></pre>
+</section>
+
+<section class="slide">
+<h2>The <code>role</code> attribute</h2>
+<pre><code>&lt;span <mark>role="button"</mark> id="button"&gt;Foo&lt;/span&gt;</code></pre>
+<dl>
+<dt>Role:</dt>
+<dd>button</dd>
+<dt>Name:</dt>
+<dd>Foo</dd>
+<dt>State:</dt>
+<dd>focusable</dd>
+<dt>Interaction:</dt>
+<dd>click, space, enter</dd>
+</dl>
 </section>
 
 <section class="slide">
@@ -827,13 +895,83 @@ button.addEventListener('keydown', function(event) {
 </section>
 
 <section class="slide">
-<h2>Exercise:</h2>
-***
+<h2>Accessibility acceptance criteria</h2>
+<ul>
+<li>Writing</li>
+<li>Testing</li>
+</ul>
 </section>
 
 <section class="slide">
-<h2>Design patterns</h2>
-***
+<h2>Exercise: writing acceptance criteria</h2>
+<p>Write the accessibility acceptance criteria for a disclosure widget</p>
+</section>
+
+<section class="slide">
+<h2>Exercise: user story</h2>
+<blockquote>"As an Assistive Technology (AT) user I want to know when additional content is available, how to access that content, and to know whether the content is currently shown or not"</blockquote>
+</section>
+
+<section class="slide">
+<h2>Acceptance criteria: focus</h2>
+<p>The disclosure control must:</p>
+<ul>
+<li>Have a visible text label</li>
+<li>Be focusable with the keyboard</li>
+<li>Be focusable with screen reader shortcuts</li>
+<li>Be large enough to tap with one finger</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Acceptance criteria: interaction</h2>
+<p>The disclosure control must:</p>
+<ul>
+<li>Be actionable with the keyboard</li>
+<li>Be actionable with touch</li>
+<li>Be actionable with a mouse</li>
+<li>Be actionable with voice</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Acceptance criteria: appearance</h2>
+<p>The disclosure control must:</p>
+<ul>
+<li>Change in appearance when focused</li>
+<li>Change in appearance when hovered</li>
+<li>Change in appearance when touched</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Acceptance criteria: state</h2>
+<p>The disclosure control must:</p>
+<ul>
+<li>Indicate the collapsed/expanded state of the disclosed content in the code</li>
+<li>Indicate the relationship between the control and the disclosed content in the code</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Acceptance criteria: general</h2>
+<p>The disclosure widget must:</p>
+<ul>
+<li>Hide collapsed content from all users</li>
+<li>Work without JavaScript</li>
+<li>Present content in logical DOM order</li>
+<li>Use a default text size that is comfortable for reading</li>
+<li>Have a contrast ratio of at least 4.5:1 between text and the background</li>
+<li>Use valid code</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Exercise: testing</h2>
+<p>Example 1:<br>
+<a href="https://www.gov.uk/service-manual/agile-delivery">gov.uk/service-manual/agile-delivery</a></p>
+<p>Example 2:<br>
+<a href="https://www.gov.uk/guidance/how-to-publish-on-gov-uk/accessible-pdfs">gov.uk/guidance/how-to-publish-on-gov-uk/accessible-pdfs</a></p>
 </section>
 
 <!--<div class="progress"></div> -->
