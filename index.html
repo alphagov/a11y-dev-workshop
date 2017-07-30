@@ -54,6 +54,11 @@ color:#000;
 </section>
 
 <section class="slide">
+<h2>Test</h2>
+<video src="media/aria-describedby.mp4">
+</section>
+
+<section class="slide">
 <h2>Native keyboard behaviour</h2>
 <ul>
 <li>Keyboard focus</li>
@@ -72,9 +77,9 @@ color:#000;
 <h2>The <code>a</code> element</h2>
 <pre><code>&lt;a <mark>href="..."</mark>&gt;...&lt;/a&gt;</code></pre>
 <dl>
-<dt>State:</dt>
+<dt>State</dt>
 <dd>focusable</dd>
-<dt>Interaction:</dt>
+<dt>Interaction</dt>
 <dd>Enter</dd>
 </dl>
 </section>
@@ -83,9 +88,9 @@ color:#000;
 <h2>The <code>button</code> element</h2>
 <pre><code>&lt;button&gt;...&lt;/button&gt;</code></pre>
 <dl>
-<dt>State:</dt>
+<dt>State</dt>
 <dd>focusable</dd>
-<dt>Interaction:</dt>
+<dt>Interaction</dt>
 <dd>Enter, Space</dd>
 </dl>
 </section>
@@ -94,9 +99,9 @@ color:#000;
 <h2>The <code>select</code> element</h2>
 <pre><code>&lt;select&gt;...&lt;/select&gt;</code></pre>
 <dl>
-<dt>State:</dt>
+<dt>State</dt>
 <dd>focusable</dd>
-<dt>Interaction:</dt>
+<dt>Interaction</dt>
 <dd>Enter, up/down</dd>
 </dl>
 </section>
@@ -204,7 +209,7 @@ color:#000;
 <dt>Enter</dt>
 <dd>Activates currently focused element</dd>
 <dt>Space</dt>
-<dd>Activates currently focused element</dd>
+<dd>Activates some currently focused elements</dd>
 </dl>
 </section>
 
@@ -236,7 +241,7 @@ color:#000;
 <h2>The <code>header</code> element</h2>
 <pre><code>&lt;header&gt;...&lt;/header&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>banner</dd>
 </dl>
 </section>
@@ -245,7 +250,7 @@ color:#000;
 <h2>The <code>footer</code> element</h2>
 <pre><code>&lt;footer&gt;...&lt;/footer&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>contentinfo</dd>
 </dl>
 </section>
@@ -254,7 +259,7 @@ color:#000;
 <h2>The <code>main</code> element</h2>
 <pre><code>&lt;main&gt;...&lt;/main&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>main</dd>
 </dl>
 </section>
@@ -263,7 +268,7 @@ color:#000;
 <h2>The <code>nav</code> element</h2>
 <pre><code>&lt;nav&gt;...&lt;/nav&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>navigation</dd>
 </dl>
 </section>
@@ -277,7 +282,7 @@ color:#000;
 <h2>The <code>ul</code> element</h2>
 <pre><code>&lt;ul&gt;...&lt;/ul&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>list</dd>
 </dl>
 </section>
@@ -289,7 +294,7 @@ color:#000;
 &lt;li&gt;...&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>listitem</dd>
 </dl>
 </section>
@@ -303,7 +308,7 @@ color:#000;
 <h2>The <code>h1</code> element</h2>
 <pre><code>&lt;h1&gt;...&lt;/h1&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>heading</dd>
 </dl>
 </section>
@@ -317,7 +322,7 @@ color:#000;
 <h2>The <code>input type="checkbox"</code> element</h2>
 <pre><code>&lt;input type="checkbox"&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>checkbox</dd>
 </dl>
 </section>
@@ -326,7 +331,7 @@ color:#000;
 <h2>The <code>input type="text"</code> element</h2>
 <pre><code>&lt;input type="text"&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>textbox</dd>
 </dl>
 </section>
@@ -335,7 +340,7 @@ color:#000;
 <h2>The <code>select</code> element</h2>
 <pre><code>&lt;select&gt;...&lt;/select&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>combobox</dd>
 </dl>
 </section>
@@ -354,9 +359,9 @@ color:#000;
 <h2>The <code>checked</code> attribute</h2>
 <pre><code>&lt;input type="checkbox" <mark>checked</mark>&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>checkbox</dd>
-<dt>State:</dt>
+<dt>State</dt>
 <dd>checked</dd>
 </dl>
 </section>
@@ -370,9 +375,9 @@ color:#000;
 <h2>The <code>disabled</code> attribute</h2>
 <pre><code>&lt;button <mark>disabled</mark>&gt;...&lt;/button&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>button</dd>
-<dt>State:</dt>
+<dt>State</dt>
 <dd>disabled</dd>
 </dl>
 </section>
@@ -429,11 +434,11 @@ color:#000;
 <pre><code>&lt;input type="checkbox" id="uk"&gt;
 &lt;label for="uk"&gt;I live in the UK&lt;/label&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
-<dl>checkbox</dd>
-<dt>State:</dt>
+<dt>Role</dt>
+<dd>checkbox</dd>
+<dt>State</dt>
 <dd>focusable unchecked</dd>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd>I live in the UK</dd>
 </dl>
 </section>
@@ -526,9 +531,9 @@ src="pictures/safari.png" alt="Safari">
 <h2>The <code>a</code> element</h2>
 <pre><code>&lt;a href="https://gov.uk"&gt;Gov.UK&lt;/a&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>link</dd>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd>Gov.UK</dd>
 </dl>
 </section>
@@ -537,9 +542,9 @@ src="pictures/safari.png" alt="Safari">
 <h2>The <code>alt</code> attribute</h2>
 <pre><code>&lt;img src="logo.svg" alt="Gov.UK"&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>image</dd>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd>Gov.UK</dd>
 </dl>
 </section>
@@ -549,11 +554,11 @@ src="pictures/safari.png" alt="Safari">
 <pre><code>&lt;input type="checkbox" id="uk"&gt;
 &lt;label for="uk"&gt;I live in the UK&lt;/label&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dl>checkbox</dd>
-<dt>State:</dt>
+<dt>State</dt>
 <dd>focusable unchecked</dd>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd>I live in the UK</dd>
 </dl>
 </section>
@@ -562,9 +567,9 @@ src="pictures/safari.png" alt="Safari">
 <h2>The <code>aria-label</code> attribute</h2>
 <pre><code>&lt;button aria-label="Search"&gt;&lt;span class="icon"&gt;&lt;/span&gt;&lt;/button&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>button</dd>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd>Search</dd>
 </dl>
 </section>
@@ -581,9 +586,9 @@ src="pictures/safari.png" alt="Safari">
 ...
 &lt;/section&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>region</dd>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd>Services and information</dd>
 </dl>
 </section>
@@ -604,11 +609,11 @@ src="pictures/safari.png" alt="Safari">
 &lt;input type="text id="tel" aria-describedby="desc"&gt;
 &lt;p id="desc"&gt;Enter your phone number with no spaces&lt;/p&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>textbox</dd>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd>Your phone number</dd>
-<dt>Description:</dt>
+<dt>Description</dt>
 <dd>Enter your phone number with no spaces</dd>
 </dl>
 </section>
@@ -638,7 +643,7 @@ src="pictures/safari.png" alt="Safari">
 <h2>Example 1: answer</h2>
 <pre><code>&lt;button&gt;<mark>Edit your answer</mark>&lt;/button&gt;</code></pre>
 <dl>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd>Edit your answer</dd>
 </dl>
 </section>
@@ -652,7 +657,7 @@ src="pictures/safari.png" alt="Safari">
 <h2>Example 2: answer</h2>
 <pre><code>&lt;button aria-label="<mark>Edit your address</mark>"&gt;Edit your answer&lt;/button&gt;</code></pre>
 <dl>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd>Edit your address</dd>
 </dl>
 </section>
@@ -670,9 +675,9 @@ src="pictures/safari.png" alt="Safari">
 &lt;input type="email" aria-describedby="desc"&gt;
 &lt;p id="desc"&gt;<mark>We will send confirmation to this email address</mark>&lt;/p&gt;</code></pre>
 <dl>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd> -</dd>
-<dt>Description:</dt>
+<dt>Description</dt>
 <dd>We will send confirmation to this email address</dd>
 </dl>
 </section>
@@ -686,7 +691,7 @@ src="pictures/safari.png" alt="Safari">
 <h2>Example 4: answer</h2>
 <pre><code>&lt;img src="stock.jpg" alt=""&gt;</code></pre>
 <dl>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd> -</dd>
 </dl>
 </section>
@@ -698,9 +703,9 @@ src="pictures/safari.png" alt="Safari">
 &lt;p&gt;<mark>A pie chart showing the percentage of visitors to Gov.UK using different browsers...</mark>&lt;/p&gt;
 &lt;/div&gt;</code></pre>
 <dl>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd>Browser statistics chart</dd>
-<dt>Description:</dt>
+<dt>Description</dt>
 <dd>A pie chart showing the percentage of visitors to Gov.UK using different browsers...</dd>
 </dl>
 </section>
@@ -720,11 +725,11 @@ src="pictures/safari.png" alt="Safari">
 &lt;/div&gt;</code></pre>
 </section>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd> -</dd>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd> -</dd>
-<dt>State:</dt>
+<dt>State</dt>
 <dd> -</dd>
 </dl>
 </section>
@@ -759,11 +764,11 @@ src="pictures/safari.png" alt="Safari">
 <h2>The <code>role</code> attribute</h2>
 <pre><code>&lt;button role="heading" aria-level="1"&gt;Foo&lt;/button&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>heading</dd>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd>Foo</dd>
-<dt>State:</dt>
+<dt>State</dt>
 <dd>level 1</dd>
 </dl>
 </section>
@@ -782,13 +787,13 @@ src="pictures/safari.png" alt="Safari">
 <h2>The <code>span</code> element</h2>
 <pre><code>&lt;span id="button"&gt;Foo&lt;/span&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>-</dd>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd>-</dd>
-<dt>State:</dt>
+<dt>State</dt>
 <dd>-</dd>
-<dt>Interaction:</dt>
+<dt>Interaction</dt>
 <dd>-</dd>
 </dl>
 </section>
@@ -797,14 +802,14 @@ src="pictures/safari.png" alt="Safari">
 <h2>The <code>tabindex</code> attribute</h2>
 <pre><code>&lt;span <mark>tabindex="0"</mark> role="button" id="button"&gt;Foo&lt;/span&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>-</dd>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd>-</dd>
-<dt>State:</dt>
+<dt>State</dt>
 <dd>focusable</dd>
 
-<dt>Interaction:</dt>
+<dt>Interaction</dt>
 <dd>-</dd>
 </dl>
 </section>
@@ -829,26 +834,26 @@ button.addEventListener('keydown', function(event) {
 <h2>The <code>role</code> attribute</h2>
 <pre><code>&lt;span <mark>role="button"</mark> id="button"&gt;Foo&lt;/span&gt;</code></pre>
 <dl>
-<dt>Role:</dt>
+<dt>Role</dt>
 <dd>button</dd>
-<dt>Name:</dt>
+<dt>Name</dt>
 <dd>Foo</dd>
-<dt>State:</dt>
+<dt>State</dt>
 <dd>focusable</dd>
-<dt>Interaction:</dt>
+<dt>Interaction</dt>
 <dd>click, space, enter</dd>
 </dl>
 </section>
 
 <section class="slide">
-<h2>4th rule of ARIA</h4>
+<h2>4th rule of ARIA</h2>
 <p>Do not use <code>role="presentation"</code> or <code>aria-hidden="true"</code> on visible and focusable elements</p>
 </section>
 
 <section class="slide">
 <h2>The <code>role="presentation"</code> attribute</h2>
 <pre><code>&lt;button role="presentation"&gt;Foo&lt;/button&gt;</code></pre>
-<p>Removes the element's semantics (but not its content</p>
+<p>Removes the element's semantics (but not its content)</p>
 </section>
 
 <section class="slide">
