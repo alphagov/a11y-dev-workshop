@@ -146,8 +146,8 @@ color:#000;
 <section class="slide">
 <h2>The <code>tabindex="0"</code> attribute</h2>
 <pre><code>&lt;div&gt;
-    <mark>&lt;button&gt;1&lt;/button&gt;</mark>
-    &lt;span tabindex="0" class="button"&gt;2&lt;/span&gt;
+    &lt;button&gt;1&lt;/button&gt;
+    &lt;span <mark>tabindex="0"</mark> class="button"&gt;2&lt;/span&gt;
     &lt;button&gt;3&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 </section>
@@ -175,7 +175,7 @@ color:#000;
 <h2>The <code>tabindex="N"</code> attribute</h2>
 <pre><code>&lt;div&gt;
     &lt;button <mark>tabindex="3"</mark>&gt;1&lt;/button&gt;
-    &lt;button&gt;2&lt;/button <mark>tabindex="2"</mark>&gt;
+    &lt;button <mark>tabindex="2"</mark>&gt;2&lt;/button&gt;
     &lt;button <mark>tabindex="1"</mark>&gt;3&lt;/button&gt;
 &lt;/div&gt;</code></pre>
 </section>
@@ -738,7 +738,8 @@ color:#000;
 
 <section class="slide">
 <h2>Example 5</h2>
-<pre><code>&lt;img src="browser-stats.svg" alt="<mark>Browser statistics chart</mark>" aria-describedby="browser-stats-desc"&gt;
+<pre><code style="font-size: 65%">&lt;img src="browser-stats.svg" alt="<mark>Browser statistics chart</mark>"
+     aria-describedby="browser-stats-desc"&gt;
 &lt;div id="browser-stats-desc"&gt;
 &lt;p&gt;<mark>A pie chart showing the percentage of visitors to Gov.UK using different browsers...</mark>&lt;/p&gt;
 &lt;/div&gt;</code></pre>
@@ -746,7 +747,8 @@ color:#000;
 
 <section class="slide">
 <h2>Example 5: answer</h2>
-<pre><code>&lt;img src="browser-stats.svg" alt="<mark>Browser statistics chart</mark>" aria-describedby="browser-stats-desc"&gt;
+<pre><code style="font-size: 65%">&lt;img src="browser-stats.svg" alt="<mark>Browser statistics chart</mark>"
+     aria-describedby="browser-stats-desc"&gt;
 &lt;div id="browser-stats-desc"&gt;
 &lt;p&gt;<mark>A pie chart showing the percentage of visitors to Gov.UK using different browsers...</mark>&lt;/p&gt;
 &lt;/div&gt;</code></pre>
