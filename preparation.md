@@ -21,7 +21,7 @@ Enable these settings:
 ### Accessibility Inspection in Chrome
 1. Go to `chrome://flags/#enable-devtools-experiments`, and select `Enable`.
 2. Open Dev Tools (`control shift i`).
-3. Go to the Dev Tools menu > `Experiements`.
+3. Go to the Dev Tools menu > `Experiments`.
 4. Select "Enable Accessibility Inspection`.
 5. Restart Dev Tools.
 

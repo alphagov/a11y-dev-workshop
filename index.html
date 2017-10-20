@@ -43,13 +43,14 @@ color:#000;
 <section class="slide">
 <h2>Overview</h2>
 <ul>
-<li>12.30pm: Native keyboard behaviour</li>
-<li>1pm: Native semantics</li>
-<li>1.30pm: Accessibility mechanics</li>
-<li>2pm: Break</li>
-<li>2.30pm: Accessible names and descriptions</li>
-<li>3pm: Polyfilling accessibility</li>
-<li>3.30pm: Acceptance criteria</li>
+<li>Native keyboard behaviour</li>
+<li>Native semantics</li>
+<li>Custom semantics</li>
+<li>Accessible names and descriptions</li>
+<li>Accessible names and descriptions</li>
+<li>Hiding content</li>
+<li>Accessibility mechanics</li>
+<li>Accessibility acceptance criteria</li>
 </ul>
 </section>
 
@@ -183,7 +184,7 @@ color:#000;
 
 <section class="slide">
 <h2><code>tabindex="N"</code> demo</h2>
-<video src="media/tabindexn-speech.mp4"></video>
+<video src="media/tabindexn.mp4"></video>
 </section>
 
 <section class="slide">
@@ -196,28 +197,9 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>Exercise: use a keyboard</h2>
-<dl>
-<dt>Tab</dt>
-<dd>Moves to next focusable element</dd>
-<dt>Shift tab</dt>
-<dd>Moves to previous focusable element</dd>
-<dt>Enter</dt>
-<dd>Activates currently focused element</dd>
-<dt>Space</dt>
-<dd>Activates some currently focused elements</dd>
-</dl>
-</section>
-
-<section class="slide">
-<h2>Exercise: steps</h2>
-<ol>
-<li>Go to the Gov.UK homepage</li>
-<li>Search for "passport"</li>
-<li>Filter by "HM Passport office"</li>
-<li>Follow the "Apply online for a UK passport" link</li>
-<li>Find out which other ways you can apply for a passport</li>
-</ol>
+<h2>Exercise 1: use a keyboard</h2>
+<p>Go to:<br>
+github.com/LJWatson/a11y-dev-workshop/blob/gh-pages/exercise1.md</p>
 </section>
 
 <section class="slide">
@@ -356,11 +338,6 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>Speech recognition demo</h2>
-<video src="media/form-fields-speech.mp4">
-</section>
-
-<section class="slide">
 <h2>States and properties</h2>
 <p>An element may be in a different state, or have different properties</p>
 </section>
@@ -403,127 +380,133 @@ color:#000;
 <img style="max-width: 22%; padding-right: 1em;" src="pictures/nvda.jpg" alt="NVDA">
 <img style="max-width: 22%; padding-right: 1em;" src="pictures/voiceover.png" alt="Voiceover">
 <img style="max-width: 22%; padding-right: 1em;" src="pictures/narrator.png" alt="Narrator">
-<p>Basic screen reader commands for accessibility testing:
-<br>
-<a href="https://www.paciellogroup.com/blog/2015/01/basic-screen-reader-commands-for-accessibility-testing/">paciellogroup.com/blog/2015/01/basic-screen-reader-commands-for-accessibility-testing/</a></p>
+<p>Go to:<br>
+github.com/ljwatson/a11y-dev-workshop/blob-gh-pages/exercise2.md</p>
 </section>
 
 <section class="slide">
-<h2>Exercise: steps</h2>
-<ol>
-<li>Go to the Gov.UK homepage</li>
-<li>Search for "passport"</li>
-<li>Filter by "HM Passport office"</li>
-<li>Follow the "Apply online for a UK passport" link</li>
-<li>Find out which other ways you can apply for a passport</li>
-</ol>
-</section>
-
-<section class="slide">
-<h2>Accessibility mechanics</h2>
+<h2>Custom semantics</h2>
 <ul>
-<li>DOM tree</li>
-<li>Accessibility tree</li>
-<li>Accessibility APIs</li>
+<li>With ARIA</li>
 </ul>
 </section>
 
 <section class="slide">
-<h2>DOM tree</h2>
-<img src="pictures/dom-tree.png" alt="DOM tree of Gov.UK search">
-</section>
-
-<section class="slide">
-<h2>Accessibility tree</h2>
-<img src="pictures/acc-tree.png" alt="Acc tree of Gov.UK search">
-</section>
-
-<section class="slide">
-<h2>The <code>input type="checkbox"</code> element</h2>
-<pre><code>&lt;input type="checkbox" id="uk"&gt;
-&lt;label for="uk"&gt;I live in the UK&lt;/label&gt;</code></pre>
+<h2>Neutral elements</h2>
+<pre><code>&lt;div class="toolbar"&gt;
+&lt;span class="button"&gt;Bold&lt;/span&gt;&lt;span class="button"&gt;Italic&lt;/span&gt;...
+&lt;/div&gt;</code></pre>
 <dl>
 <dt>Role</dt>
-<dd>checkbox</dd>
-<dt>State</dt>
-<dd>focusable unchecked</dd>
+<dd> -</dd>
 <dt>Name</dt>
-<dd>I live in the UK</dd>
+<dd> -</dd>
+<dt>State</dt>
+<dd> -</dd>
 </dl>
 </section>
 
 <section class="slide">
-<h2>Accessibility APIs</h2>
-<p>Used by ATs to query accessibility information
-<br>
-<a href="https://www.smashingmagazine.com/2015/03/web-accessibility-with-accessibility-api/">smashingmagazine.com/2015/03/web-accessibility-with-accessibility-api/</a></p>
+<h2>Screen reader demo</h2>
+<video src="media/div-span.mp4"></video>
 </section>
 
 <section class="slide">
-<h2>Platform accessibility APIs</h2>
+<h2>Using ARIA</h2>
+<p>Attributes that polyfill missing role, name, and state information for screen readers</p>
 <ul>
-<li>Windows: MSAA   UIAutomation   IAccessible2</li>
-<li>Mac OS: NSAccessibility   Protocol</li>
-<li>Linux: IAccessible2   ATK/AT-ASPI</li>
-<li>iOS: UIAccessibility</li>
-<li>Android: Accessibility Framework</li>
+<li>ARIA 1.0:<br>
+<a href="https://w3.org/tr/wai-aria/">w3.org/tr/wai-aria/</a></li>
+<li>ARIA 1.1 (Candidate Recommendation):<br>
+<a href="https://w3.org/tr/wai-aria-1.1/">w3.org/tr/wai-aria-1.1/</a></li>
 </ul>
 </section>
 
 <section class="slide">
-<h2>Accessibility API mappings (AAM)</h2>
-<p>Define how role, state, properties, and keyboard focus are handled in the browser</p>
+<h2>The <code>role</code> attribute</h2>
+<p>70+ roles, including:</p>
 <ul>
-<li>Core AAM:<br>
-<a href="https://w3.org/tr/core-aam-1.1/">w3.org/tr/core-aam-1.1/</a></li>
-<li>HTML AAM:<br>
-<a href="https://w3.org/tr/html-aam-1.0/">w3.org/tr/html-aam-1.0/</a></li>
+<li>tablist, tab, tabpanel</li>
+<li>checkbox, radio, textbox</li>
+<li>table, row, cell</li>
+<li>toolbar, menu, menubar</li>
 </ul>
 </section>
 
 <section class="slide">
-<h2>Browser accessibility support</h2>
-<p>An element may be supported in a browser, but not accessibility supported</p>
+<h2>The <code>aria-</code> attributes</h2>
+<p>45+ states and properties, including:</p>
 <ul>
-<li><a href="https://www.paciellogroup.com/blog/2016/08/what-does-accessibility-supported-mean/">paciellogroup.com/blog/2016/08/what-does-accessibility-supported-mean/</a></li>
-<li><a href="https://html5accessibility.com/">html5accessibility.com</a></li>
+<li><code>aria-invalid</code>, <code>aria-required</code></li>
+<li><code>aria-pressed</code>, <code>aria-expanded</code></li>
+<li><code>aria-controls</code>, <code>aria-owns</code></li>
 </ul>
 </section>
 
 <section class="slide">
-<h2>Accessibility Object Model (AOM)</h2>
-<p>Proposed JavaScript accessibility API</p>
-<img src="pictures/chrome.png" alt="Chrome">
-<img src="pictures/firefox.png" alt="Firefox">
-<img src="pictures/safari.png" alt="Safari">
+<h2>1st rule of ARIA</h2>
+<p>If you can use a native HTML element or attribute with the semantics and behaviour you require... then do so</p>
 </section>
 
 <section class="slide">
-<h2>AOM: phases</h2>
-<ol>
-<li>Modify accessibility node semantics</li>
-<li>Respond to events from screen readers (and other ATs)</li>
-<li>Create virtual accessibility nodes</li>
-<li>Query the accessibility tree</li>
-</ol>
+<h2>2nd rule of ARIA</h2>
+<p>Do not change native semantics, unless you really have to</p>
 </section>
 
 <section class="slide">
-<h2>Exercise: Inspect the accessibility tree</h2>
-<ul>
-<li>Chrome Accessibility Developer Tools</li>
-<li>TPG aViewer</li>
-</ul>
+<h2>The wrong <code>role</code> attribute</h2>
+<pre><code>&lt;button role="heading" aria-level="1"&gt;Foo&lt;/button&gt;</code></pre>
+<dl>
+<dt>Role</dt>
+<dd>heading</dd>
+<dt>Name</dt>
+<dd>Foo</dd>
+<dt>State</dt>
+<dd>level 1</dd>
+</dl>
 </section>
 
 <section class="slide">
-<h2>Exercise: steps</h2>
-<ul>
-<li>Go to the Gov.UK homepage</li>
-<li>Use the Elements panel to walk the DOM</li>
-<li>Find information in the Accessibility Properties panel</li>
-<li>Run an audit</li>
-</ul>
+<h2>Screen reader demo</h2>
+<video src="media/broken-role.mp4"></video>
+</section>
+
+<section class="slide">
+<h2>3rd rule of ARIA</h2>
+<p>All interactive controls must be usable with a keyboard</p>
+</section>
+
+<section class="slide">
+<h2>4th rule of ARIA</h2>
+<p>Do not use <code>role="presentation"</code> or <code>aria-hidden="true"</code> on visible and focusable elements</p>
+</section>
+
+<section class="slide">
+<h2>The <code>role="presentation"</code> attribute</h2>
+<pre><code>&lt;button role="presentation"&gt;Foo&lt;/button&gt;</code></pre>
+<p>Removes the element's semantics (but not its content)</p>
+</section>
+
+<section class="slide">
+<h2>Screen reader demo</h2>
+<video src="media/presentation-role.mp4"></video>
+</section>
+
+<section class="slide">
+<h2>The <code>table</code> element</h2>
+<pre><code>&lt;table role="presentation"&gt;...&lt;/table&gt;</code></pre>
+<p>Useful workaround for layout tables</p>
+</section>
+
+<section class="slide">
+<h2>The <code>role="none"</code> attribute</h2>
+<pre><code>&lt;button role="none"&gt;Foo&lt;/button&gt;</code></pre>
+<p>Introduced in ARIA 1.1 as a synonym for <code>role="presentation"</code></p>
+</section>
+
+<section class="slide">
+<h2>The 5th rule of ARIA</h2>
+<p>All interactive elements must have an accessible name</p>
 </section>
 
 <section class="slide">
@@ -676,7 +659,7 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>Exercise: accessible names</h2>
+<h2>Exercise 3: accessible names</h2>
 <p>For each example, identify the element's accessible name and/or description</p>
 </section>
 
@@ -767,190 +750,6 @@ color:#000;
 </section>
 
 <section class="slide">
-<h2>Polyfilling accessibility</h2>
-<ul>
-<li>With ARIA</li>
-<li>With JavaScript</li>
-</ul>
-</section>
-
-<section class="slide">
-<h2>Neutral elements</h2>
-<pre><code>&lt;div class="toolbar"&gt;
-&lt;span class="button"&gt;Bold&lt;/span&gt;&lt;span class="button"&gt;Italic&lt;/span&gt;...
-&lt;/div&gt;</code></pre>
-<dl>
-<dt>Role</dt>
-<dd> -</dd>
-<dt>Name</dt>
-<dd> -</dd>
-<dt>State</dt>
-<dd> -</dd>
-</dl>
-</section>
-
-<section class="slide">
-<h2>Screen reader demo</h2>
-<video src="media/div-span.mp4"></video>
-</section>
-
-<section class="slide">
-<h2>Using ARIA</h2>
-<p>Attributes that polyfill missing role, name, and state information for screen readers</p>
-<ul>
-<li>ARIA 1.0:<br>
-<a href="https://w3.org/tr/wai-aria/">w3.org/tr/wai-aria/</a></li>
-<li>ARIA 1.1 (Candidate Recommendation):<br>
-<a href="https://w3.org/tr/wai-aria-1.1/">w3.org/tr/wai-aria-1.1/</a></li>
-</ul>
-</section>
-
-<section class="slide">
-<h2>1st rule of ARIA</h2>
-<p>If you can use a native HTML element or attribute with the semantics and behaviour you require... then do so</p>
-</section>
-
-<section class="slide">
-<h2>2nd rule of ARIA</h2>
-<p>Do not change native semantics, unless you really have to</p>
-</section>
-
-<section class="slide">
-<h2>The <code>role</code> attribute</h2>
-<pre><code>&lt;button role="heading" aria-level="1"&gt;Foo&lt;/button&gt;</code></pre>
-<dl>
-<dt>Role</dt>
-<dd>heading</dd>
-<dt>Name</dt>
-<dd>Foo</dd>
-<dt>State</dt>
-<dd>level 1</dd>
-</dl>
-</section>
-
-<section class="slide">
-<h2>Screen reader demo</h2>
-<video src="media/broken-role.mp4"></video>
-</section>
-
-<section class="slide">
-<h2>3rd rule of ARIA</h2>
-<p>All interactive controls must be usable with a keyboard</p>
-</section>
-
-<section class="slide">
-<h2>The <code>span</code> element</h2>
-<pre><code>&lt;span id="button"&gt;Foo&lt;/span&gt;</code></pre>
-<dl>
-<dt>Role</dt>
-<dd>-</dd>
-<dt>Name</dt>
-<dd>-</dd>
-<dt>State</dt>
-<dd>-</dd>
-<dt>Interaction</dt>
-<dd>-</dd>
-</dl>
-</section>
-
-<section class="slide">
-<h2>Screen reader demo</h2>
-<video src="media/fake-button.mp4"></video>
-</section>
-
-<section class="slide">
-<h2>The <code>role</code> attribute</h2>
-<pre><code>&lt;span <mark>role="button"</mark> id="button"&gt;Foo&lt;/span&gt;</code></pre>
-<dl>
-<dt>Role</dt>
-<dd>button</dd>
-<dt>Name</dt>
-<dd>Foo</dd>
-<dt>State</dt>
-<dd>-</dd>
-<dt>Interaction</dt>
-<dd>-</dd>
-</dl>
-</section>
-
-<section class="slide">
-<h2>Screen reader demo</h2>
-<video src="media/fake-button-role.mp4"></video>
-</section>
-
-<section class="slide">
-<h2>The <code>tabindex</code> attribute</h2>
-<pre><code>&lt;span <mark>tabindex="0"</mark> role="button" id="button"&gt;Foo&lt;/span&gt;</code></pre>
-<dl>
-<dt>Role</dt>
-<dd>button</dd>
-<dt>Name</dt>
-<dd>foo</dd>
-<dt>State</dt>
-<dd>focusable</dd>
-<dt>Interaction</dt>
-<dd>-</dd>
-</dl>
-</section>
-
-<section class="slide">
-<h2>Screen reader demo</h2>
-<video src="media/fake-button-tabindex.mp4"></video>
-</section>
-
-<section class="slide">
-<h2>The <code>click</code> event listener</h2>
-<pre><code>var button = document.getElementById('button');
-button.addEventListener('click', doSomething, false);</code></pre>
-</section>
-
-<section class="slide">
-<h2>The <code>keydown</code> event listener</h2>
-<pre><code>var button = document.getElementById('button');
-button.addEventListener('keydown', function(event) {
-    if (event.keyCode == 13 || event.keyCode == 32) {
-        doSomething();
-    }
-});</code></pre>
-</section>
-
-<section class="slide">
-<h2>The <code>button</code> element</h2>
-<pre><code>&lt;button id="button"&gt;foo&lt;/button&gt;
-
-var button = document.getElementById('button');
-button.addEventListener('click', doSomething, false);</code></pre>
-</section>
-
-<section class="slide">
-<h2>4th rule of ARIA</h2>
-<p>Do not use <code>role="presentation"</code> or <code>aria-hidden="true"</code> on visible and focusable elements</p>
-</section>
-
-<section class="slide">
-<h2>The <code>role="presentation"</code> attribute</h2>
-<pre><code>&lt;button role="presentation"&gt;Foo&lt;/button&gt;</code></pre>
-<p>Removes the element's semantics (but not its content)</p>
-</section>
-
-<section class="slide">
-<h2>Screen reader demo</h2>
-<video src="media/presentation-role.mp4"></video>
-</section>
-
-<section class="slide">
-<h2>The <code>table</code> element</h2>
-<pre><code>&lt;table role="presentation"&gt;...&lt;/table&gt;</code></pre>
-<p>Useful workaround for layout tables</p>
-</section>
-
-<section class="slide">
-<h2>The <code>role="none"</code> attribute</h2>
-<pre><code>&lt;button role="none"&gt;Foo&lt;/button&gt;</code></pre>
-<p>Introduced in ARIA 1.1 as a synonym for <code>role="presentation"</code></p>
-</section>
-
-<section class="slide">
 <h2>Hiding content</h2>
 <ul>
 <li>The <code>hidden</code> attribute</li>
@@ -983,8 +782,83 @@ button.addEventListener('click', doSomething, false);</code></pre>
 </section>
 
 <section class="slide">
-<h2>The 5th rule of ARIA</h2>
-<p>All interactive elements must have an accessible name</p>
+<h2>Accessibility mechanics</h2>
+<ul>
+<li>DOM tree</li>
+<li>Accessibility tree</li>
+<li>Accessibility APIs</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>DOM tree</h2>
+<img src="pictures/dom-tree.png" alt="DOM tree of Gov.UK search">
+</section>
+
+<section class="slide">
+<h2>Accessibility tree</h2>
+<img src="pictures/acc-tree.png" alt="Acc tree of Gov.UK search">
+</section>
+
+<section class="slide">
+<h2>The <code>checked</code> attribute</h2>
+<pre><code>&lt;input type="checkbox" checked id="uk"&gt;
+&lt;label for="uk"&gt;I live in the UK&lt;/label&gt;</code></pre>
+<dl>
+<dt>Role</dt>
+<dd>checkbox</dd>
+<dt>State</dt>
+<dd>checked</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Screen reader demo</h2>
+<video src="media/checkbox-checked.mp4"></video>
+</section>
+
+<section class="slide">
+<h2>Accessibility APIs</h2>
+<p>Used by ATs to query accessibility information
+<br>
+<a href="https://www.smashingmagazine.com/2015/03/web-accessibility-with-accessibility-api/">smashingmagazine.com/2015/03/web-accessibility-with-accessibility-api/</a></p>
+</section>
+
+<section class="slide">
+<h2>Platform accessibility APIs</h2>
+<ul>
+<li>Windows: MSAA   UIAutomation   IAccessible2</li>
+<li>Mac OS: NSAccessibility   Protocol</li>
+<li>Linux: IAccessible2   ATK/AT-ASPI</li>
+<li>iOS: UIAccessibility</li>
+<li>Android: Accessibility Framework</li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Accessibility API mappings (AAM)</h2>
+<p>Define how role, state, properties, and keyboard focus are handled in the browser</p>
+<ul>
+<li>Core AAM:<br>
+<a href="https://w3.org/tr/core-aam-1.1/">w3.org/tr/core-aam-1.1/</a></li>
+<li>HTML AAM:<br>
+<a href="https://w3.org/tr/html-aam-1.0/">w3.org/tr/html-aam-1.0/</a></li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Browser accessibility support</h2>
+<p>An element may be supported in a browser, but not accessibility supported</p>
+<ul>
+<li><a href="https://www.paciellogroup.com/blog/2016/08/what-does-accessibility-supported-mean/">paciellogroup.com/blog/2016/08/what-does-accessibility-supported-mean/</a></li>
+<li><a href="https://html5accessibility.com/">html5accessibility.com</a></li>
+</ul>
+</section>
+
+<section class="slide">
+<h2>Exercise 4: Inspect the accessibility tree</h2>
+<p>Go to:<br>
+github.com/ljwatson/a11y-dev-workshop/blob/gh-pages/exercise4.md</p>
 </section>
 
 <section class="slide">
@@ -996,13 +870,26 @@ button.addEventListener('click', doSomething, false);</code></pre>
 </section>
 
 <section class="slide">
-<h2>Exercise: writing acceptance criteria</h2>
+<h2>Exercise 5: writing acceptance criteria</h2>
 <p>Write the acceptance criteria for a disclosure widget</p>
 </section>
 
 <section class="slide">
 <h2>User story: disclosure widget</h2>
 <blockquote>"As an Assistive Technology (AT) user I want to know when additional content is available, how to access that content, and to know whether the content is currently shown or not"</blockquote>
+</section>
+
+<section class="slide">
+<h2>Acceptance criteria: general</h2>
+<p>The disclosure widget must:</p>
+<ul>
+<li>Hide collapsed content from all users</li>
+<li>Work without JavaScript</li>
+<li>Present content in logical DOM order</li>
+<li>Use a default text size that is comfortable for reading</li>
+<li>Have a contrast ratio of at least 4.5:1 between text and the background</li>
+<li>Use valid code</li>
+</ul>
 </section>
 
 <section class="slide">
@@ -1047,24 +934,9 @@ button.addEventListener('click', doSomething, false);</code></pre>
 </section>
 
 <section class="slide">
-<h2>Acceptance criteria: general</h2>
-<p>The disclosure widget must:</p>
-<ul>
-<li>Hide collapsed content from all users</li>
-<li>Work without JavaScript</li>
-<li>Present content in logical DOM order</li>
-<li>Use a default text size that is comfortable for reading</li>
-<li>Have a contrast ratio of at least 4.5:1 between text and the background</li>
-<li>Use valid code</li>
-</ul>
-</section>
-
-<section class="slide">
-<h2>Exercise: testing</h2>
-<p>Example 1:<br>
-<a href="https://www.gov.uk/service-manual/agile-delivery">gov.uk/service-manual/agile-delivery</a></p>
-<p>Example 2:<br>
-<a href="https://www.gov.uk/guidance/how-to-publish-on-gov-uk/accessible-pdfs">gov.uk/guidance/how-to-publish-on-gov-uk/accessible-pdfs</a></p>
+<h2>Exercise 6: testing</h2>
+<p>Go to:<br>
+github.com/ljwatson/a11y-dev-workshop/blob/gh-pages/exercise6.md</p>
 </section>
 
 <section class="slide">
@@ -1087,18 +959,6 @@ button.addEventListener('click', doSomething, false);</code></pre>
 </section>
 
 <section class="slide">
-<h2>Wrap up</h2>
-<ul>
-<li>Native keyboard behaviour</li>
-<li>Native semantics</li>
-<li>Accessibility mechanics</li>
-<li>Accessible names and descriptions</li>
-<li>Polyfilling accessibility</li>
-<li>Acceptance criteria</li>
-</ul>
-</section>
-
-<section class="slide">
 <h2>Asking questions</h2>
 <ul>
 <li><a href="https://www.gov.uk/service-manual/communities/accessibility-community">gov.uk/service-manual/communities/accessibility-community</a></li>
@@ -1106,7 +966,13 @@ button.addEventListener('click', doSomething, false);</code></pre>
 </ul>
 </section>
 
+<section class="slide">
+<h2>References</h2>
+<p>Things mentioned during the workshop:<br>
+github.com/ljwatson/a11y-dev-workshop/bllob/gh-pages/references.md</p>
+</section>
+
 <!--<div class="progress"></div> -->
-	<script src="shower/shower.min.js"></script>
+<script src="shower/shower.min.js"></script>
 	</body>
 	</html>
