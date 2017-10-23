@@ -3,11 +3,10 @@
 Inspect the browser accessibility tree using Chrome Dev Tools.
 
 ## Steps
-1. Go to the [checkbox example](https://ljwatson.github.io/a11y-dev-workshop/examples/checkbox.html)
+1. Go to this [JSBin example](http://jsbin.com/kigegosobi/edit?output)
 2. Open chrome Dev Tools
 3. Use the `Elements` tab to walk the DOM
-4. Find information in the `Accessibility properties` panel
-5. Run an audit
+4. Find information in the `Accessibility` panel
 
 ## Accessibility Inspection in Chrome
 
