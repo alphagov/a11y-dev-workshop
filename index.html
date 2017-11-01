@@ -8,6 +8,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Developer workshop: Accessibility</title>
 
+<style>
+.reader {
+position: absolute !important;
+clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+clip: rect(1px, 1px, 1px, 1px);
+}
+</style>
+
+
 <link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
 <link rel="stylesheet" href="shower/themes/media.css">
 </head>
@@ -48,7 +57,6 @@ color:#000;
 <li>Custom semantics</li>
 <li>Accessible names and descriptions</li>
 <li>Accessible names and descriptions</li>
-<li>Hiding content</li>
 <li>Accessibility mechanics</li>
 <li>Accessibility acceptance criteria</li>
 </ul>
@@ -199,7 +207,7 @@ color:#000;
 <section class="slide">
 <h2>Exercise 1: use a keyboard</h2>
 <p>Go to:<br>
-github.com/LJWatson/a11y-dev-workshop/blob/gh-pages/exercise1.md</p>
+github.com/alphagov/a11y-dev-workshop/blob/gh-pages/exercise1.md</p>
 </section>
 
 <section class="slide">
@@ -381,7 +389,7 @@ github.com/LJWatson/a11y-dev-workshop/blob/gh-pages/exercise1.md</p>
 <img style="max-width: 22%; padding-right: 1em;" src="pictures/voiceover.png" alt="Voiceover">
 <img style="max-width: 22%; padding-right: 1em;" src="pictures/narrator.png" alt="Narrator">
 <p>Go to:<br>
-github.com/ljwatson/a11y-dev-workshop/blob-gh-pages/exercise2.md</p>
+github.com/alphagov/a11y-dev-workshop/blob-gh-pages/exercise2.md</p>
 </section>
 
 <section class="slide">
@@ -502,6 +510,29 @@ github.com/ljwatson/a11y-dev-workshop/blob-gh-pages/exercise2.md</p>
 <h2>The <code>role="none"</code> attribute</h2>
 <pre><code>&lt;button role="none"&gt;Foo&lt;/button&gt;</code></pre>
 <p>Introduced in ARIA 1.1 as a synonym for <code>role="presentation"</code></p>
+</section>
+
+<section class="slide">
+<h2>The <code>aria-hidden</code> attribute</h2>
+<pre><code>&lt;button aria-hidden="true"&gt;Foo&lt;/button&gt;</code></pre>
+<p>Removes the element from the accessibility tree</p>
+</section>
+
+<section class="slide">
+<h2>Screen reader demo</h2>
+<img src="pictures/aria-hidden.png" alt="aria-hidden button">
+</section>
+
+<section class="slide">
+<h2>The <code>hidden</code> attribute</h2>
+<pre><code>&lt;nav <mark>hidden</mark>&gt;...&lt;/nav&gt;</code></pre>
+<p>Hides content from everyone</p>
+</section>
+
+<section class="slide">
+<h2>The <code>display:none;</code> property</h2>
+<pre><code>&lt;div id="reveal" <mark>style="display:none;"</mark>&gt;...&lt;/div&gt;</code></pre>
+<p>Hides content from everyone, unless CSS is disabled</p>
 </section>
 
 <section class="slide">
@@ -669,26 +700,8 @@ github.com/ljwatson/a11y-dev-workshop/blob-gh-pages/exercise2.md</p>
 </section>
 
 <section class="slide">
-<h2>Example 1: answer</h2>
-<pre><code>&lt;button&gt;<mark>Edit your answer</mark>&lt;/button&gt;</code></pre>
-<dl>
-<dt>Name</dt>
-<dd>Edit your answer</dd>
-</dl>
-</section>
-
-<section class="slide">
 <h2>Example 2</h2>
 <pre><code>&lt;button aria-label="Edit your address"&gt;Edit your answer&lt;/button&gt;</code></pre>
-</section>
-
-<section class="slide">
-<h2>Example 2: answer</h2>
-<pre><code>&lt;button aria-label="<mark>Edit your address</mark>"&gt;Edit your answer&lt;/button&gt;</code></pre>
-<dl>
-<dt>Name</dt>
-<dd>Edit your address</dd>
-</dl>
 </section>
 
 <section class="slide">
@@ -699,30 +712,8 @@ github.com/ljwatson/a11y-dev-workshop/blob-gh-pages/exercise2.md</p>
 </section>
 
 <section class="slide">
-<h2>Example 3: answer</h2>
-<pre><code>&lt;label&gt;Email address&lt;/label&gt;
-&lt;input type="email" aria-describedby="desc"&gt;
-&lt;p id="desc"&gt;<mark>We will send confirmation to this email address</mark>&lt;/p&gt;</code></pre>
-<dl>
-<dt>Name</dt>
-<dd> -</dd>
-<dt>Description</dt>
-<dd>We will send confirmation to this email address</dd>
-</dl>
-</section>
-
-<section class="slide">
 <h2>Example 4</h2>
 <pre><code>&lt;img src="stock.jpg" alt=""&gt;</code></pre>
-</section>
-
-<section class="slide">
-<h2>Example 4: answer</h2>
-<pre><code>&lt;img src="stock.jpg" alt=""&gt;</code></pre>
-<dl>
-<dt>Name</dt>
-<dd> -</dd>
-</dl>
 </section>
 
 <section class="slide">
@@ -735,7 +726,52 @@ aria-describedby="browser-stats-desc"&gt;
 </section>
 
 <section class="slide">
+<h2>Example 1: answer</h2>
+<p class="reader">Accessible name is "Edit your answer".</p>
+<pre><code>&lt;button&gt;<mark>Edit your answer</mark>&lt;/button&gt;</code></pre>
+<dl>
+<dt>Name</dt>
+<dd>Edit your answer</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Example 2: answer</h2>
+<p class="reader">Accessible name is "Edit your address".</p>
+<pre><code>&lt;button aria-label="<mark>Edit your address</mark>"&gt;Edit your answer&lt;/button&gt;</code></pre>
+<dl>
+<dt>Name</dt>
+<dd>Edit your address</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Example 3: answer</h2>
+<p class="reader">No accessible name.</p>
+<pre><code>&lt;label&gt;Email address&lt;/label&gt;
+&lt;input type="email" aria-describedby="desc"&gt;
+&lt;p id="desc"&gt;<mark>We will send confirmation to this email address</mark>&lt;/p&gt;</code></pre>
+<dl>
+<dt>Name</dt>
+<dd> -</dd>
+<dt>Description</dt>
+<dd>We will send confirmation to this email address</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Example 4: answer</h2>
+<p class="reader">No accessible name.</p>
+<pre><code>&lt;img src="stock.jpg" alt=""&gt;</code></pre>
+<dl>
+<dt>Name</dt>
+<dd> -</dd>
+</dl>
+</section>
+
+<section class="slide">
 <h2>Example 5: answer</h2>
+<p class="reader">Accessible name is "Browser statistics chart. Accessible description is "Pie chart showing...".</p>
 <pre><code style="font-size: 65%">&lt;img src="browser-stats.svg" alt="<mark>Browser statistics chart</mark>"
 aria-describedby="browser-stats-desc"&gt;
 &lt;div id="browser-stats-desc"&gt;
@@ -747,38 +783,6 @@ aria-describedby="browser-stats-desc"&gt;
 <dt>Description</dt>
 <dd>A pie chart showing the percentage of visitors to Gov.UK using different browsers...</dd>
 </dl>
-</section>
-
-<section class="slide">
-<h2>Hiding content</h2>
-<ul>
-<li>The <code>hidden</code> attribute</li>
-<li>The <code>display:none;</code> property</li>
-<li>The <code>aria-hidden</code> attribute</li>
-</ul>
-</section>
-
-<section class="slide">
-<h2>The <code>hidden</code> attribute</h2>
-<pre><code>&lt;nav <mark>hidden</mark>&gt;...&lt;/nav&gt;</code></pre>
-<p>Hides content from everyone</p>
-</section>
-
-<section class="slide">
-<h2>The <code>display:none;</code> property</h2>
-<pre><code>&lt;div id="reveal" <mark>style="display:none;"</mark>&gt;...&lt;/div&gt;</code></pre>
-<p>Hides content from everyone, unless CSS is disabled</p>
-</section>
-
-<section class="slide">
-<h2>The <code>aria-hidden</code> attribute</h2>
-<pre><code>&lt;button aria-hidden="true"&gt;Foo&lt;/button&gt;</code></pre>
-<p>Removes the element from the accessibility tree</p>
-</section>
-
-<section class="slide">
-<h2>Screen reader demo</h2>
-<img src="pictures/aria-hidden.png" alt="aria-hidden button">
 </section>
 
 <section class="slide">
@@ -858,7 +862,7 @@ aria-describedby="browser-stats-desc"&gt;
 <section class="slide">
 <h2>Exercise 4: Inspect the accessibility tree</h2>
 <p>Go to:<br>
-github.com/ljwatson/a11y-dev-workshop/blob/gh-pages/exercise4.md</p>
+github.com/alphagov/a11y-dev-workshop/blob/gh-pages/exercise4.md</p>
 </section>
 
 <section class="slide">
@@ -936,7 +940,7 @@ github.com/ljwatson/a11y-dev-workshop/blob/gh-pages/exercise4.md</p>
 <section class="slide">
 <h2>Exercise 6: testing</h2>
 <p>Go to:<br>
-github.com/ljwatson/a11y-dev-workshop/blob/gh-pages/exercise6.md</p>
+github.com/alphagov/a11y-dev-workshop/blob/gh-pages/exercise6.md</p>
 </section>
 
 <section class="slide">
@@ -969,7 +973,7 @@ github.com/ljwatson/a11y-dev-workshop/blob/gh-pages/exercise6.md</p>
 <section class="slide">
 <h2>References</h2>
 <p>Things mentioned during the workshop:<br>
-github.com/ljwatson/a11y-dev-workshop/bllob/gh-pages/references.md</p>
+github.com/alphagov/a11y-dev-workshop/bllob/gh-pages/references.md</p>
 </section>
 
 <!--<div class="progress"></div> -->
