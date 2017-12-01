@@ -65,3 +65,19 @@ This is a collection of accessibility acceptance criteria. The criteria are unso
 * Not change context on-change
 * Have an accessible name
 * Have an accessible description
+* Move keyboard focus to the intended destination
+* Be visually distinct from other content on the page
+* Use the appropriate markup for the purpose
+* Be a landmark region
+* Indicate how many items in the collection
+* Indicate the order
+* Be presentational and ignored by screen readers
+* Have a visible caption
+* Convey the level
+* Be part of a correct hierarchy
+* Indicate it is a navigation block
+* Indicate it is complementary content
+* Indicate it is the main content area
+* Indicate it is a search facility
+* Indicate it is header information for the page
+* Indicate it is footer information for the page
