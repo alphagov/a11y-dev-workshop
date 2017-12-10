@@ -207,7 +207,7 @@ color:#000;
 <section class="slide">
 <h2>Exercise 1: use a keyboard</h2>
 <p>Go to:<br>
-github.com/alphagov/a11y-dev-workshop/blob/gh-pages/exercise1.md</p>
+alphagov.github.io/a11y-dev-workshop/exercise1</p>
 </section>
 
 <section class="slide">
@@ -351,6 +351,33 @@ github.com/alphagov/a11y-dev-workshop/blob/gh-pages/exercise1.md</p>
 </section>
 
 <section class="slide">
+<h2>The <code>h1</code> element</h2>
+<pre><code>&lt;h1&gt;...&lt;/h1&gt;</code></pre>
+<dl>
+<dt>Role</dt>
+<dd>heading</dd>
+<dt>Property</dt>
+<dd>Level 1</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>The <code>h2</code> element</h2>
+<pre><code>&lt;h2&gt;...&lt;/h2&gt;</code></pre>
+<dl>
+<dt>Role</dt>
+<dd>heading</dd>
+<dt>Property</dt>
+<dd>Level 2</dd>
+</dl>
+</section>
+
+<section class="slide">
+<h2>Screen reader demo</h2>
+<video src="media/headings.mp4"></video>
+</section>
+
+<section class="slide">
 <h2>The <code>checked</code> attribute</h2>
 <pre><code>&lt;input type="checkbox" <mark>checked</mark>&gt;</code></pre>
 <dl>
@@ -389,7 +416,7 @@ github.com/alphagov/a11y-dev-workshop/blob/gh-pages/exercise1.md</p>
 <img style="max-width: 22%; padding-right: 1em;" src="pictures/voiceover.png" alt="Voiceover">
 <img style="max-width: 22%; padding-right: 1em;" src="pictures/narrator.png" alt="Narrator">
 <p>Go to:<br>
-github.com/alphagov/a11y-dev-workshop/blob-gh-pages/exercise2.md</p>
+alphagov.github.io/a11y-dev-workshop/exercise2</p>
 </section>
 
 <section class="slide">
@@ -469,8 +496,8 @@ github.com/alphagov/a11y-dev-workshop/blob-gh-pages/exercise2.md</p>
 <dd>heading</dd>
 <dt>Name</dt>
 <dd>Foo</dd>
-<dt>State</dt>
-<dd>level 1</dd>
+<dt>Property</dt>
+<dd>Level 1</dd>
 </dl>
 </section>
 
@@ -482,6 +509,48 @@ github.com/alphagov/a11y-dev-workshop/blob-gh-pages/exercise2.md</p>
 <section class="slide">
 <h2>3rd rule of ARIA</h2>
 <p>All interactive controls must be usable with a keyboard</p>
+</section>
+
+<section class="slide">
+<h2>Supplement existing interaction</h2>
+<pre><code>&lt;a href="#here" id="button" <mark>role="button"</mark>&gt;...&lt;/a&gt;
+
+var button = document.getElementById('button');
+button.addEventListener('keydown', function(event) {
+    if (event.keyCode == 13) {
+        doSomething();
+    }
+});</code></pre>
+</section>
+
+<section class="slide">
+<h2>Provide all interaction</h2>
+<pre><code>&lt;span id="button" <mark>role="button" tabindex="0"</mark>&gt;...&lt;/span&gt;
+
+var button = document.getElementById('button');
+button.addEventListener('keydown', function(event) {
+    if (event.keyCode == 13 || event.keyCode == 32) {
+        doSomething();
+    }
+});</code></pre>
+</section>
+
+<section class="slide">
+<h2>The <code>application</code> role</h2>
+<pre><code>&lt;body role="application"&gt;...&lt;/body&gt;</code></pre>
+<p>Stops screen reader commands from working and hands navigation back to the browser</p>
+</section>
+
+<section class="slide">
+<h2>Other application mode roles</h2>
+<p>Other ARIA roles trigger applications mode, including:</p>
+<ul>
+<li>tablist</li>
+<li>menu and menubar</li>
+<li>toolbar</li>
+<li>progressbar</li>
+<li>grid</li>
+</ul>
 </section>
 
 <section class="slide">
@@ -726,6 +795,11 @@ aria-describedby="browser-stats-desc"&gt;
 </section>
 
 <section class="slide">
+<h2>Example 1: reminder</h2>
+<pre><code>&lt;button&gt;Edit your answer&lt;/button&gt;</code></pre>
+</section>
+
+<section class="slide">
 <h2>Example 1: answer</h2>
 <p class="reader">Accessible name is "Edit your answer".</p>
 <pre><code>&lt;button&gt;<mark>Edit your answer</mark>&lt;/button&gt;</code></pre>
@@ -736,6 +810,11 @@ aria-describedby="browser-stats-desc"&gt;
 </section>
 
 <section class="slide">
+<h2>Example 2: reminder</h2>
+<pre><code>&lt;button aria-label="Edit your address"&gt;Edit your answer&lt;/button&gt;</code></pre>
+</section>
+
+<section class="slide">
 <h2>Example 2: answer</h2>
 <p class="reader">Accessible name is "Edit your address".</p>
 <pre><code>&lt;button aria-label="<mark>Edit your address</mark>"&gt;Edit your answer&lt;/button&gt;</code></pre>
@@ -743,6 +822,13 @@ aria-describedby="browser-stats-desc"&gt;
 <dt>Name</dt>
 <dd>Edit your address</dd>
 </dl>
+</section>
+
+<section class="slide">
+<h2>Example 3: reminder</h2>
+<pre><code>&lt;label&gt;Email address&lt;/label&gt;
+&lt;input type="email" aria-describedby="desc"&gt;
+&lt;p id="desc"&gt;We will send confirmation to this email address&lt;/p&gt;</code></pre>
 </section>
 
 <section class="slide">
@@ -760,6 +846,11 @@ aria-describedby="browser-stats-desc"&gt;
 </section>
 
 <section class="slide">
+<h2>Example 4: reminder</h2>
+<pre><code>&lt;img src="stock.jpg" alt=""&gt;</code></pre>
+</section>
+
+<section class="slide">
 <h2>Example 4: answer</h2>
 <p class="reader">No accessible name.</p>
 <pre><code>&lt;img src="stock.jpg" alt=""&gt;</code></pre>
@@ -767,6 +858,15 @@ aria-describedby="browser-stats-desc"&gt;
 <dt>Name</dt>
 <dd> -</dd>
 </dl>
+</section>
+
+<section class="slide">
+<h2>Example 5: reminder</h2>
+<pre><code style="font-size: 65%">&lt;img src="browser-stats.svg" alt="Browser statistics chart"
+aria-describedby="browser-stats-desc"&gt;
+&lt;div id="browser-stats-desc"&gt;
+&lt;p&gt;A pie chart showing the percentage of visitors to Gov.UK using different browsers...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
 </section>
 
 <section class="slide">
@@ -862,7 +962,7 @@ aria-describedby="browser-stats-desc"&gt;
 <section class="slide">
 <h2>Exercise 4: Inspect the accessibility tree</h2>
 <p>Go to:<br>
-github.com/alphagov/a11y-dev-workshop/blob/gh-pages/exercise4.md</p>
+alphagov.github.io/a11y-dev-workshop/exercise4</p>
 </section>
 
 <section class="slide">
@@ -874,18 +974,24 @@ github.com/alphagov/a11y-dev-workshop/blob/gh-pages/exercise4.md</p>
 </section>
 
 <section class="slide">
-<h2>Exercise 5: writing acceptance criteria</h2>
-<p>Write the acceptance criteria for a disclosure widget</p>
+<h2>Exercise 5: writing accessibility acceptance criteria</h2>
+<p>Go to:<br>
+alphagov.github.io/a11y-dev-workshop/exercise5</p>
 </section>
 
 <section class="slide">
-<h2>User story: disclosure widget</h2>
+<h2>Component description</h2>
+<p>A single interactive component that lets a user show or hide content. Typically it is closed (collapsed) by default.</p>
+</section>
+
+<section class="slide">
+<h2>User story</h2>
 <blockquote>"As an Assistive Technology (AT) user I want to know when additional content is available, how to access that content, and to know whether the content is currently shown or not"</blockquote>
 </section>
 
 <section class="slide">
-<h2>Acceptance criteria: general</h2>
-<p>The disclosure widget must:</p>
+<h2>Accessibility acceptance criteria: general</h2>
+<p>The disclosure component must:</p>
 <ul>
 <li>Hide collapsed content from all users</li>
 <li>Work without JavaScript</li>
@@ -897,7 +1003,12 @@ github.com/alphagov/a11y-dev-workshop/blob/gh-pages/exercise4.md</p>
 </section>
 
 <section class="slide">
-<h2>Acceptance criteria: focus</h2>
+<h2>Accessibility acceptance criteria: focus</h2>
+<p>Write accessibility acceptance criteria relating to focus</p>
+</section>
+
+<section class="slide">
+<h2>Accessibility acceptance criteria: focus</h2>
 <p>The disclosure control must:</p>
 <ul>
 <li>Have a visible text label</li>
@@ -908,7 +1019,12 @@ github.com/alphagov/a11y-dev-workshop/blob/gh-pages/exercise4.md</p>
 </section>
 
 <section class="slide">
-<h2>Acceptance criteria: interaction</h2>
+<h2>Accessibility acceptance criteria: interaction</h2>
+<p>Write accessibility acceptance criteria relating to interaction</p>
+</section>
+
+<section class="slide">
+<h2>Accessibility acceptance criteria: interaction</h2>
 <p>The disclosure control must:</p>
 <ul>
 <li>Be actionable with the keyboard</li>
@@ -919,7 +1035,12 @@ github.com/alphagov/a11y-dev-workshop/blob/gh-pages/exercise4.md</p>
 </section>
 
 <section class="slide">
-<h2>Acceptance criteria: appearance</h2>
+<h2>Accessibility acceptance criteria: appearance</h2>
+<p>Write accessibility acceptance criteria relating to appearance</p>
+</section>
+
+<section class="slide">
+<h2>Accessibility acceptance criteria: appearance</h2>
 <p>The disclosure control must:</p>
 <ul>
 <li>Change in appearance when focused</li>
@@ -929,7 +1050,12 @@ github.com/alphagov/a11y-dev-workshop/blob/gh-pages/exercise4.md</p>
 </section>
 
 <section class="slide">
-<h2>Acceptance criteria: state</h2>
+<h2>Accessibility acceptance criteria: state</h2>
+<p>Write accessibility acceptance criteria relating to state</p>
+</section>
+
+<section class="slide">
+<h2>Accessibility acceptance criteria: state</h2>
 <p>The disclosure control must:</p>
 <ul>
 <li>Indicate the collapsed/expanded state of the disclosed content in the code</li>
@@ -940,7 +1066,7 @@ github.com/alphagov/a11y-dev-workshop/blob/gh-pages/exercise4.md</p>
 <section class="slide">
 <h2>Exercise 6: testing</h2>
 <p>Go to:<br>
-github.com/alphagov/a11y-dev-workshop/blob/gh-pages/exercise6.md</p>
+alphagov.github.io/a11y-dev-workshop/exercise6</p>
 </section>
 
 <section class="slide">
