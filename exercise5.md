@@ -19,7 +19,7 @@ The disclosure component must:
 
 ## Steps
 1. Write accessibility acceptance criteria based on the following categories:
-    *Focus
+    * Focus
     * Interaction
     * Appearance    
     * State
