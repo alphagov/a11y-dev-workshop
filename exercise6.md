@@ -48,5 +48,5 @@ The disclosure control must:
 ### State criteria
 
 The disclosure control must:
-* Indicate the collapsed/expanded state of of the dislosed content in the code
+* Indicate the collapsed/expanded state of of the disclosed content in the code
 * Indicate the relationship between the disclosure control and the disclosed content
