@@ -3,7 +3,7 @@
 Inspect the browser accessibility tree using Chrome Dev Tools.
 
 ## Steps
-1. Go to this [JSBin example](http://jsbin.com/kigegosobi/edit?output)
+1. Go to this [JSBin example](http://jsbin.com/qafosuruwa/1/edit?html,output)
 2. Open chrome Dev Tools
 3. Use the `Elements` tab to walk the DOM
 4. Find information in the `Accessibility` panel
