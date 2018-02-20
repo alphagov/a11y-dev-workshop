@@ -56,7 +56,6 @@ color:#000;
 <li>Native semantics</li>
 <li>Custom semantics</li>
 <li>Accessible names and descriptions</li>
-<li>Accessible names and descriptions</li>
 <li>Accessibility mechanics</li>
 <li>Accessibility acceptance criteria</li>
 </ul>
@@ -126,7 +125,7 @@ color:#000;
 
 <section class="slide">
 <h2>DOM order demo</h2>
-<video src="media/dom-order.mp4"></video>
+<video src="media/screen-reader/dom-order.mp4"></video>
 </section>
 
 <section class="slide">
@@ -140,7 +139,7 @@ color:#000;
 
 <section class="slide">
 <h2>Flex order demo</h2>
-<video src="media/flex-order.mp4"></video>
+<video src="media/screen-reader/flex-order.mp4"></video>
 </section>
 
 <section class="slide">
@@ -164,7 +163,7 @@ color:#000;
 
 <section class="slide">
 <h2><code>tabindex="0"</code> demo</h2>
-<video src="media/tabindex0.mp4"></video>
+<video src="media/screen-reader/tabindex0.mp4"></video>
 </section>
 
 <section class="slide">
@@ -178,7 +177,15 @@ color:#000;
 
 <section class="slide">
 <h2><code>tabindex="-1"</code> demo</h2>
-<video src="media/tabindex-1.mp4"></video>
+<video src="media/screen-reader/tabindex-1.mp4"></video>
+</section>
+
+<section class="slide">
+<h2>The <code>.focus()</code> method</h2>
+<pre><code>&lt;div id="dialog" tabindex="-1"&gt;...&lt;/div&gt;
+
+var dialog = getElementById("dialog");
+dialog.focus();</code></pre>
 </section>
 
 <section class="slide">
@@ -192,17 +199,9 @@ color:#000;
 
 <section class="slide">
 <h2><code>tabindex="N"</code> demo</h2>
-<video src="media/tabindexn.mp4"></video>
+<video src="media/screen-reader/tabindexn.mp4"></video>
 </section>
 
-<section class="slide">
-<h2>The <code>.focus()</code> method</h2>
-<p>To move focus:</p>
-<ul>
-<li>Set <code>tabindex="-1"</code> on the element to receive focus</li>
-<li>Use the <code>.focus()</code> method to move focus to that element</li>
-</ul>
-</section>
 
 <section class="slide">
 <h2>Exercise 1: use a keyboard</h2>
@@ -261,7 +260,7 @@ alphagov.github.io/a11y-dev-workshop/exercise1</p>
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/html-landmark-elements.mp4"></video>
+<video src="media/screen-reader/html-landmark-elements.mp4"></video>
 </section>
 
 <section class="slide">
@@ -287,7 +286,7 @@ alphagov.github.io/a11y-dev-workshop/exercise1</p>
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/list.mp4"></video>
+<video src="media/screen-reader/list.mp4"></video>
 </section>
 
 <section class="slide">
@@ -301,7 +300,7 @@ alphagov.github.io/a11y-dev-workshop/exercise1</p>
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/headings.mp4"></video>
+<video src="media/screen-reader/headings.mp4"></video>
 </section>
 
 <section class="slide">
@@ -342,12 +341,7 @@ alphagov.github.io/a11y-dev-workshop/exercise1</p>
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/form-fields.mp4"></video>
-</section>
-
-<section class="slide">
-<h2>Speech recognition demo</h2>
-<video src="media/form-fields-sr.mp4">
+<video src="media/screen-reader/form-fields.mp4"></video>
 </section>
 
 <section class="slide">
@@ -379,7 +373,7 @@ alphagov.github.io/a11y-dev-workshop/exercise1</p>
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/headings.mp4"></video>
+<video src="media/screen-reader/headings.mp4"></video>
 </section>
 
 <section class="slide">
@@ -395,7 +389,7 @@ alphagov.github.io/a11y-dev-workshop/exercise1</p>
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/checkbox-checked.mp4"></video>
+<video src="media/screen-reader/checkbox-checked.mp4"></video>
 </section>
 
 <section class="slide">
@@ -411,7 +405,7 @@ alphagov.github.io/a11y-dev-workshop/exercise1</p>
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/disabled.mp4"></video>
+<video src="media/screen-reader/disabled.mp4"></video>
 </section>
 
 <section class="slide">
@@ -448,7 +442,7 @@ alphagov.github.io/a11y-dev-workshop/exercise2</p>
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/div-span.mp4"></video>
+<video src="media/screen-reader/div-span.mp4"></video>
 </section>
 
 <section class="slide">
@@ -456,8 +450,7 @@ alphagov.github.io/a11y-dev-workshop/exercise2</p>
 <p>Attributes that polyfill missing role, name, and state information for screen readers</p>
 <ul>
 <li>ARIA 1.0:<br>
-<a href="https://w3.org/tr/wai-aria/">w3.org/tr/wai-aria/</a></li>
-<li>ARIA 1.1 (Candidate Recommendation):<br>
+<li>ARIA 1.1 (W3C Recommendation):<br>
 <a href="https://w3.org/tr/wai-aria-1.1/">w3.org/tr/wai-aria-1.1/</a></li>
 </ul>
 </section>
@@ -508,7 +501,7 @@ alphagov.github.io/a11y-dev-workshop/exercise2</p>
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/broken-role.mp4"></video>
+<video src="media/screen-reader/broken-role.mp4"></video>
 </section>
 
 <section class="slide">
@@ -571,7 +564,7 @@ button.addEventListener('keydown', function(event) {
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/presentation-role.mp4"></video>
+<video src="media/screen-reader/presentation-role.mp4"></video>
 </section>
 
 <section class="slide">
@@ -615,6 +608,16 @@ button.addEventListener('keydown', function(event) {
 </section>
 
 <section class="slide">
+<h2>Accessible names</h2>
+<p>Identifies an instance of an element within an interface</p>
+</section>
+
+<section class="slide">
+<h2>Accessible descriptions</h2>
+<p>Provides additional descriptive information about an element</p>
+</section>
+
+<section class="slide">
 <h2>Accessible names and descriptions</h2>
 <ul>
 <li>From element content</li>
@@ -622,11 +625,6 @@ button.addEventListener('keydown', function(event) {
 <li>From associated element</li>
 <li>With ARIA</li>
 </ul>
-</section>
-
-<section class="slide">
-<h2>Accessible names</h2>
-<p>Identifies an instance of an element within an interface</p>
 </section>
 
 <section class="slide">
@@ -642,12 +640,12 @@ button.addEventListener('keydown', function(event) {
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/link.mp4"></video>
+<video src="media/screen-reader/link.mp4"></video>
 </section>
 
 <section class="slide">
 <h2>Speech recognition demo</h2>
-<video src="media/link-sr.mp4">
+<video src="media/speech-rec/link.mp4"></video>
 </section>
 
 <section class="slide">
@@ -663,7 +661,7 @@ button.addEventListener('keydown', function(event) {
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/image.mp4"></video>
+<video src="media/screen-reader/image.mp4"></video>
 </section>
 
 <section class="slide">
@@ -682,12 +680,12 @@ button.addEventListener('keydown', function(event) {
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/checkbox.mp4"></video>
+<video src="media/screen-reader/checkbox.mp4"></video>
 </section>
 
 <section class="slide">
 <h2>Speech recognition demo</h2>
-<video src="media/checkbox-sr.mp4">
+<video src="media/speech-rec/checkbox.mp4"></section>
 </section>
 
 <section class="slide">
@@ -703,12 +701,7 @@ button.addEventListener('keydown', function(event) {
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/fieldset-legend.mp4"></video>
-</section>
-
-<section class="slide">
-<h2>Speech recognition demo</h2>
-<video src="media/fieldset-legend-sr.mp4">
+<video src="media/screen-reader/fieldset-legend.mp4"></video>
 </section>
 
 	<section class="slide">
@@ -724,7 +717,7 @@ button.addEventListener('keydown', function(event) {
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/aria-label.mp4"></video>
+<video src="media/screen-reader/aria-label.mp4"></video>
 </section>
 
 <section class="slide">
@@ -743,12 +736,7 @@ button.addEventListener('keydown', function(event) {
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/aria-labelledby.mp4"></video>
-</section>
-
-<section class="slide">
-<h2>Accessible descriptions</h2>
-<p>Provides additional descriptive information about an element</p>
+<video src="media/screen-reader/aria-labelledby.mp4"></video>
 </section>
 
 <section class="slide">
@@ -768,7 +756,7 @@ button.addEventListener('keydown', function(event) {
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/aria-describedby.mp4"></video>
+<video src="media/screen-reader/aria-describedby.mp4"></video>
 </section>
 
 <section class="slide">
@@ -924,20 +912,22 @@ aria-describedby="browser-stats-desc"&gt;
 </section>
 
 <section class="slide">
-<h2>The <code>checked</code> attribute</h2>
-<pre><code>&lt;input type="checkbox" checked id="uk"&gt;
-&lt;label for="uk"&gt;I live in the UK&lt;/label&gt;</code></pre>
+<h2>The <code>input type="checkbox"</code> element</h2>
+<pre><code>&lt;input type="checkbox" checked id="tc"&gt;
+&lt;label for="tc"&gt;Accept terms and conditions&lt;/label&gt;</code></pre>
 <dl>
 <dt>Role</dt>
 <dd>checkbox</dd>
 <dt>State</dt>
 <dd>checked</dd>
+<dt>Accessible name</dt>
+<dd>"I live in the UK"</dd>
 </dl>
 </section>
 
 <section class="slide">
 <h2>Screen reader demo</h2>
-<video src="media/checkbox-checked.mp4"></video>
+<video src="media/screen-reader/checkbox-checked.mp4"></video>
 </section>
 
 <section class="slide">
